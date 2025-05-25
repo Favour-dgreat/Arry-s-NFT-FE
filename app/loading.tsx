@@ -11,7 +11,7 @@ const LoadingScreen = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setCanSkip(true);
-    }, 2000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -56,14 +56,17 @@ const LoadingScreen = () => {
       />
 
       {canSkip && (
-        <motion.button
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          onClick={handleSkip}
-          className="mt-8 text-sm text-gray-400 hover:text-white transition-colors"
         >
-          Skip Animation
-        </motion.button>
+          <button
+            onClick={handleSkip}
+            className="mt-8 text-sm text-gray-400 hover:text-white transition-colors"
+          >
+            Skip Animation
+          </button>
+        </motion.div>
       )}
     </div>
   );

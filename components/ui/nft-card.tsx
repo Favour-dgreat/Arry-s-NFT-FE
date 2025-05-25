@@ -9,6 +9,7 @@ type NFTItem = {
   id: string;
   image: string;
   title: string;
+  subtitle: string;
   description: string;
   price: number;
 };
@@ -52,8 +53,11 @@ export function NFTCard({ item }: NFTCardProps) {
         </div>
       </div>
       <div className="p-4 text-left pb-4 flex flex-col gap-1">
-        <h3 className="text-white text-2xl font-semibold uppercase tracking-wide">
+        <h3 className="text-white text-1.5xl font-semibold uppercase tracking-wide">
           {item.title}
+        </h3>
+          <h3 className="text-white text-1.5xl font-semibold uppercase tracking-wide">
+          {item.subtitle}
         </h3>
         <p className="text-gray-400 text-xs mt-1 tracking-wider font-medium">
           {item.description}
@@ -79,8 +83,8 @@ export function NFTCard({ item }: NFTCardProps) {
           </div>
           <button
             className={cn(
-              "px-4 py-1.5 text-xs font-medium transition-colors duration-200",
-              "bg-gray-200 text-gray-700 hover:bg-gray-300 rounded"
+              "px-4 py-2.5 text-xs font-medium transition-colors duration-200",
+              "bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-[2px]"
             )}
           >
             Details

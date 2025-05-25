@@ -6,7 +6,7 @@ export interface NFT {
   image: string;
   subtitle: string;
   level: string;
-  currentBid: number;
+  price?: number;
 }
 
 export interface Collection {

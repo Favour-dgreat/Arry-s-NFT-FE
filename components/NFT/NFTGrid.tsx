@@ -79,8 +79,6 @@ export function NFTGrid() {
         </Button>
       </div>
 
-      {/* Join Modal */}
-      <JoinCommunityModal />
     </div>
   );
 }

@@ -8,6 +8,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO UNO",
     level: "v2 level",
     currentBid: 0.234,
+    description:'',
+    price: 0.234,
   },
   {
     id: "2",
@@ -16,6 +18,9 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO DOS",
     level: "v2 level",
     currentBid: 0.234,
+    description:'',
+    price: 0.234,
+   
   },
   {
     id: "3",
@@ -24,6 +29,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO TRES",
     level: "v2 level",
     currentBid: 0.234,
+    description:'',
+    price: 0.234,
   },
   {
     id: "4",
@@ -32,6 +39,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO CUATRO",
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
   {
     id: "5",
@@ -40,6 +49,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO CINCO", 
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
   {
     id: "6",
@@ -48,6 +59,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO SEIS",
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
     {
     id: "7",
@@ -56,6 +69,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO SEITE",
     level: "v2 level",
     currentBid: 0.234,
+    description:'',
+    price: 0.234,
   },
       {
     id: "8",
@@ -64,6 +79,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO OCHO",
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
     {
     id: "9",
@@ -72,6 +89,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO NUEVE",
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
         {
     id: "10",
@@ -80,6 +99,8 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO DIEZ",
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
         {
     id: "11",
@@ -88,5 +109,7 @@ export const nftItems: NFTItem[] = [
     subtitle: "GENTLEMANO NUMERO ONCE",
     level: "v2 level",
     currentBid: 0.234,
+     description:'',
+    price: 0.234,
   },
 ];

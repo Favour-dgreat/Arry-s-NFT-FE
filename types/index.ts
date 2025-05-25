@@ -5,4 +5,6 @@ export interface NFTItem {
   subtitle: string;
   level: string;
   currentBid: number;
+  description: string;
+  price: number;
 }

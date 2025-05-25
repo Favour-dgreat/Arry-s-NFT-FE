@@ -354,7 +354,7 @@ useEffect(() => {
                       <ArrowUp className="rotate-[-90deg] text-black" size={20} />
                     </button>
                     <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
-                      {nfts.map((nft: { id: string; image: string; title: string; subtitle: string; description: string; price: number; }) => (
+                      {nfts.map((nft: { id: string; image: string; title: string; description: string; subtitle: string; price: number; }) => (
                         <div key={nft.id} className="flex-shrink-0">
                           <div className="w-96 flex flex-col items-center justify-center">
                             <NFTCard item={nft} />

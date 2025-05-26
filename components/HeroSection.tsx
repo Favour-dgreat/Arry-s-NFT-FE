@@ -2,9 +2,23 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const HeroSection = () => {
+import Navbar from './Layout/Navbar';
+interface HeroSectionProps {
+  setDiscordConnected: (connected: boolean) => void;
+  onOpenModal: () => void;
+}
+const HeroSection: React.FC<HeroSectionProps> = ({
+  setDiscordConnected,
+  onOpenModal,
+}) => {
   return (
+    <div className="relative bg-black text-white">
+      <Navbar
+        discordConnected={false} // Replace with actual state if needed
+        onOpenModal={onOpenModal}
+      />
+      
+    
     <section className="py-6 md:py-20 mt-20 text-center">
       <motion.h1 
         className="text-4xl md:text-5xl lg:text-6xl font-bold font-fattip"
@@ -25,6 +39,8 @@ const HeroSection = () => {
         full collection and mint your own NFT.
       </motion.p>
     </section>
+ 
+    </div>
   );
 };
 

@@ -15,8 +15,6 @@ export default function FullSelectionInterfacePage() {
         onOpenModal={() => setIsModalOpen(true)}
       />
       <HeroSection
-        setDiscordConnected={setDiscordConnected}
-        onOpenModal={() => setIsModalOpen(true)}
       />
       <JoinCommunityModal
         open={isModalOpen}

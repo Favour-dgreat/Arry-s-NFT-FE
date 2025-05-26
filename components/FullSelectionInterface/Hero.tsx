@@ -15,13 +15,6 @@ const filters = [
   { id: 'light', label: 'Light Bulb Movement Series' },
   { id: 'deconstruct', label: 'Deconstruct Series' },
 ];
-const navItems = [
-  { name: "HOME", href: "/" },
-  { name: "ABOUT", href: "/about" },
-  { name: "TEAM", href: "/team" },
-  { name: "BLOG", href: "/blog" },
-  { name: "ROADMAP", href: "/roadmap" },
-];
 
 
 const users = [
@@ -91,12 +84,10 @@ const featuredNFTs = [
   }
 ];
 
+
+
 const HeroSection = ({
-  setDiscordConnected,
-  onOpenModal,
-}: {
-  setDiscordConnected: (val: boolean) => void;
-  onOpenModal: () => void;
+  
 }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
@@ -136,39 +127,7 @@ useEffect(() => {
 
   return (
     <section className="py-12 md:py-20">
-      <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-black/40 backdrop-blur-md text-white py-4 pt-5 shadow-lg">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center">
-                <div className="flex-shrink-0">
-                  <Link href="/" className="flex items-center">
-                    {/* Logo or Brand */}
-                    <span className="font-bold text-lg">Arry&apos;s NFT</span>
-                  </Link>
-                </div>
-                <nav className="hidden md:flex space-x-8">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={cn(
-                        "text-sm font-medium transition-colors hover:text-gray-300"
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </nav>
-                <button
-                  className="flex items-center space-x-2 bg-[#2C2C2C] hover:bg-gray-600 text-xs font-medium px-3 py-2 rounded transition-colors"
-                >
-                  <span>
-                    Discord Connected 
-                  </span>
-                  <Link2 className="text-white w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </header>
+
       <div className="max-w-7xl mx-auto px-24 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
         style={{ background: 'linear-gradient(135deg, #262E30, #060C0C00)' }}>
         <motion.div

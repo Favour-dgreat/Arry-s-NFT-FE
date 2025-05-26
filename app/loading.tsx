@@ -11,7 +11,7 @@ const LoadingScreen = () => {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setCanSkip(true);
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);

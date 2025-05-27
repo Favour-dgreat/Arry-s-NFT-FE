@@ -6,10 +6,10 @@ import { useState } from "react";
 
 const navItems = [
 	{ name: "HOME", href: "/" },
-	{ name: "ABOUT", href: "/about" },
-	{ name: "TEAM", href: "/team" },
-	{ name: "BLOG", href: "/blog" },
-	{ name: "ROADMAP", href: "/roadmap" },
+	{ name: "ABOUT", href: "#" },
+	{ name: "TEAM", href: "#" },
+	{ name: "BLOG", href: "#" },
+	{ name: "ROADMAP", href: "/Roadmap" },
 ];
 
 type NavbarProps = {
@@ -26,7 +26,7 @@ const Navbar = ({ discordConnected, onOpenModal }: NavbarProps) => {
 				<div className="flex justify-between items-center">
 					<div className="flex-shrink-0">
 						<Link href="/" className="flex items-center">
-							<span className="font-bold text-lg">Arry&apos;s NFT</span>
+							<span className="font-bold text-lg font-fattip">Arry&apos;s NFT</span>
 						</Link>
 					</div>
 					{/* Desktop Nav */}

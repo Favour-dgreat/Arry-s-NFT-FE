@@ -126,7 +126,7 @@ const HeroSection: React.FC = ({}) => {
     <section className="py-8 md:py-20">
       {/* Hero Section */}
       <div
-        className="max-w-8xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
+        className="max-w-10xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-12 items-center"
         style={{ background: 'linear-gradient(135deg, #262E30, #060C0C00)' }}
       >
         <motion.div
@@ -134,7 +134,7 @@ const HeroSection: React.FC = ({}) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4" >
             Discover, and Collect Digital Arts (NFTs)
           </h1>
           <p className="text-gray-400 mb-6 text-base sm:text-lg">

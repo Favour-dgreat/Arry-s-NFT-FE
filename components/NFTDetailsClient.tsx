@@ -41,21 +41,18 @@ export default function NFTDetailsClient({ nft, collection, series }: NFTDetails
 
       <div className="bg-[#1E2122] rounded-lg p-8">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Left column - Image */}
-            <div>
+            {/* Left column - Image */}
+            <div className="flex items-center justify-center bg-white rounded-lg p-6 shadow-md">
                 <Image
                     src={nft.image}
                     alt={nft.title}
-                    className="w-full rounded-lg"
+                    className="w-full h-auto rounded-lg object-contain"
                     width={500}
                     height={500}
-                    style={{ width: '100%', height: 'auto' }}
+                    style={{ maxHeight: 400, width: '100%', objectFit: 'contain' }}
                     priority
                 />
-
-                </div>
-          <div>
-          </div>
+            </div>
 
           {/* Right column - Details */}
           <div>
@@ -101,7 +98,7 @@ export default function NFTDetailsClient({ nft, collection, series }: NFTDetails
                 <h2 className="text-gray-400">Current Bid</h2>
                 <div className="flex items-center mt-1">
                   <Image
-                    src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                    src="./images/eth-icon.png"
                     alt="ETH"
                     className="w-4 h-4 mr-2"
                     width={16}
@@ -129,7 +126,7 @@ export default function NFTDetailsClient({ nft, collection, series }: NFTDetails
               {series.map((item) => (
                 <div
                   key={item.id}
-                  className="flex-shrink-0 w-64 bg-[#2A2D2F] rounded-lg overflow-hidden cursor-pointer hover:border hover:border-gray-600 transition-all"
+                  className="flex-shrink-0 w-64 bg-[#ffff] rounded-lg overflow-hidden cursor-pointer hover:border hover:border-gray-600 transition-all"
                   onClick={() => router.push(`/nft/${item.id}`)}
                 >
                   <Image
@@ -143,7 +140,7 @@ export default function NFTDetailsClient({ nft, collection, series }: NFTDetails
                     <h3 className="font-medium mb-2">{item.title}</h3>
                     <div className="flex items-center">
                       <Image
-                        src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                        src="./images/eth-icon.png"
                         alt="ETH"
                         className="w-3 h-3 mr-1"
                         width={12}
@@ -179,6 +176,7 @@ export default function NFTDetailsClient({ nft, collection, series }: NFTDetails
         nft={nft}
       />
     </div>
+  
 </>
   );    
 }

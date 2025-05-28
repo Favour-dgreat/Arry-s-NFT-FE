@@ -8,3 +8,7 @@ export interface NFTItem {
   description: string;
   price: number;
 }
+export interface Collection {
+  name: string;
+  items: NFTItem[];
+}

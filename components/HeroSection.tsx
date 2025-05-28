@@ -38,6 +38,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         Preview our exclusive collection of digital art. Join our Discord to access the 
         full collection and mint your own NFT.
       </motion.p>
+      
     </section>
  
     </div>

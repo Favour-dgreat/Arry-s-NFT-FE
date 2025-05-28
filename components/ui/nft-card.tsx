@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -19,6 +20,7 @@ type NFTCardProps = {
 };
 
 export function NFTCard({ item }: NFTCardProps) {
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   if (!item) {
     return null;
@@ -37,6 +39,7 @@ export function NFTCard({ item }: NFTCardProps) {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => router.push(`/nft/${item.id}`)}
     >
       <div className="relative flex justify-center p-4">
         <div className="bg-white overflow-hidden p-4 border border-gray-200">
@@ -86,6 +89,10 @@ export function NFTCard({ item }: NFTCardProps) {
               "px-4 py-2.5 text-xs font-medium transition-colors duration-200",
               "bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-[2px]"
             )}
+            onClick={(e) => {
+              e.stopPropagation();
+              router.push(`/NFTDetails/${item.id}`);
+            }}
           >
             Details
           </button>

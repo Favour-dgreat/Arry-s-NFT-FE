@@ -80,6 +80,7 @@ export default function Home() {
           onClose={() => setModalOpen(false)}
           onDiscordConnect={handleDiscordConnect} // This handler now sets persisted state and navigates
         />
+        
       </div>
     </Suspense>
   );

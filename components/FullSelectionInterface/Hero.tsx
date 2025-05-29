@@ -120,7 +120,7 @@ const HeroSection: React.FC = ({}) => {
       );
     }, 5000);
     return () => clearInterval(interval);
-  }, [featuredNFTs.length]);
+  }, []);
 
   return (
     <section className="py-8 md:py-20">

@@ -57,9 +57,11 @@ const navigationButtons = [
   { label: "ROADMAP", href: "/roadmap" },
 ];
 
-const GalleryPage: React.FC<GalleryProps> = ({
-  setDiscordConnected,
-}) => {
+const GalleryPage = () => {
+  // Remove setDiscordConnected from props
+  // If you need setDiscordConnected, manage it inside this component or via context
+  // ...existing code...
+  const [discordConnected, setDiscordConnected] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

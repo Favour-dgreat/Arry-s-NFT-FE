@@ -1,60 +1,103 @@
-'use client';
-
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
+"use client";
+import Link from "next/link";
+import { Link2, Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const navItems = [
-  { name: 'HOME', href: '/' },
-  { name: 'ABOUT', href: '/about' },
-  { name: 'TEAM', href: '/team' },
-  { name: 'BLOG', href: '/blog' },
-  { name: 'ROADMAP', href: '/roadmap' },
+	{ name: "HOME", href: "/" },
+	{ name: "ABOUT", href: "#" },
+	{ name: "TEAM", href: "#" },
+	{ name: "BLOG", href: "#" },
+	{ name: "ROADMAP", href: "/Roadmap" },
 ];
 
-const Navbar = () => {
-  return (
-    <header className="w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-black/40 backdrop-blur-md text-white py-4 pt-5 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <div className="w-15 h-10 relative ">
-              <h1 className='text-2xl md:text-2xl lg:text-2xl font-fattip'>ARRY&apos;S NFT </h1>
-              </div>
-            </Link>
-          </div>
-          
-          <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-gray-300",
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-          
-          <div className="md:hidden">
-            {/* Mobile menu button */}
-            <button className="text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
+type NavbarProps = {
+	discordConnected: boolean;
+	onOpenModal: () => void;
+};
+
+const Navbar = ({ discordConnected, onOpenModal }: NavbarProps) => {
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+	return (
+		<header className="w-full fixed top-0 left-0 z-50 transition-all duration-300 bg-black/40 backdrop-blur-md text-white py-4 pt-5 shadow-lg">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="flex justify-between items-center">
+					<div className="flex-shrink-0">
+						<Link href="/" className="flex items-center">
+							<span className="font-bold text-lg font-fattip">Arry&apos;s NFT</span>
+						</Link>
+					</div>
+					{/* Desktop Nav */}
+					<nav className="hidden md:flex space-x-8">
+						{navItems.map((item) => (
+							<Link
+								key={item.name}
+								href={item.href}
+								className={cn(
+									"text-sm font-medium transition-colors hover:text-gray-300"
+								)}
+							>
+								{item.name}
+							</Link>
+						))}
+					</nav>
+					{/* Mobile Hamburger */}
+					<div className="md:hidden flex items-center">
+						<button
+							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+							className="p-2 rounded hover:bg-gray-700 transition-colors"
+							aria-label="Open menu"
+						>
+							{mobileMenuOpen ? (
+								<X className="w-6 h-6 text-white" />
+							) : (
+								<Menu className="w-6 h-6 text-white" />
+							)}
+						</button>
+					</div>
+					<button
+						className="hidden md:flex items-center space-x-2 bg-[#2C2C2C] hover:bg-gray-600 text-xs font-medium px-3 py-2 rounded transition-colors"
+						onClick={onOpenModal}
+						disabled={discordConnected}
+					>
+						<span>
+							{discordConnected ? "Discord Connected" : "Join Discord"}
+						</span>
+						<Link2 className="text-white w-4 h-4" />
+					</button>
+				</div>
+				{/* Mobile Nav Menu */}
+				{mobileMenuOpen && (
+					<nav className="md:hidden mt-4 flex flex-col space-y-4 bg-black/80 rounded p-4 shadow-lg">
+						{navItems.map((item) => (
+							<Link
+								key={item.name}
+								href={item.href}
+								className={cn(
+									"text-sm font-medium transition-colors hover:text-gray-300"
+								)}
+								onClick={() => setMobileMenuOpen(false)}
+							>
+								{item.name}
+							</Link>
+						))}
+						<button
+							className="flex items-center space-x-2 bg-[#2C2C2C] hover:bg-gray-600 text-xs font-medium px-3 py-2 rounded transition-colors"
+							onClick={onOpenModal}
+							disabled={discordConnected}
+						>
+							<span>
+								{discordConnected ? "Discord Connected" : "Join Discord"}
+							</span>
+							<Link2 className="text-white w-4 h-4" />
+						</button>
+					</nav>
+				)}
+			</div>
+		</header>
+	);
 };
 
 export default Navbar;

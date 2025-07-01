@@ -1,3 +1,4 @@
+import Footer from '@/components/Layout/Footer';
 import { RoadmapTimeline } from '@/components/roadmap/RoadmapTimeline';
 
 export default function RoadmapPage() {
@@ -10,6 +11,7 @@ export default function RoadmapPage() {
         </p>
       </div>
       <RoadmapTimeline />
+    <Footer />
     </div>
   );
 }

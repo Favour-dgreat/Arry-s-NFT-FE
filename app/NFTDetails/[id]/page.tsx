@@ -2,6 +2,7 @@
 
 import { nftsByCollection } from '../../../lib/data';
 import NFTDetailsClient from '../../../components/NFTDetailsClient';
+import Footer from '@/components/Layout/Footer';
 
 export default function NFTDetailsPage({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -25,7 +26,13 @@ export default function NFTDetailsPage({ params }: { params: { id: string } }) {
     return <div className="text-center py-20">NFT not found</div>;
   }
 
-  return <NFTDetailsClient {...nftData} />;
+  return (
+    <>
+      <NFTDetailsClient {...nftData} />
+      <Footer />
+    </>
+  );
+  
 }
 
 export async function generateStaticParams() {

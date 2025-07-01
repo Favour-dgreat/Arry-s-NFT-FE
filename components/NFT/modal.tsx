@@ -1,19 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { Mail } from "lucide-react";
 import { createPortal } from "react-dom";
 
 interface JoinCommunityModalProps {
   open: boolean;
   onClose: () => void;
-  onDiscordConnect: () => void; // This prop is called when Discord connection is initiated
+  onDiscordConnect: () => void; 
 }
 
 export default function JoinCommunityModal({ open, onClose, onDiscordConnect }: JoinCommunityModalProps) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const router = useRouter();
   const [isValid, setIsValid] = useState(false);
   const [buttonProcessing, setButtonProcessing] = useState(false); // Manages the button's loading state
 
@@ -44,7 +42,9 @@ export default function JoinCommunityModal({ open, onClose, onDiscordConnect }: 
     // Simulate opening Discord in a new tab
     // In a real scenario, this might trigger an OAuth flow that redirects back
     window.open("https://discord.gg/your-server-code", "_blank");
-
+    // const clientId = "YOUR_DISCORD_CLIENT_ID"; 
+    // const redirectUri = encodeURIComponent(window.location.origin + "/discord-callback");
+    // const discordOauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify%20guilds.join`;
     // Call the parent's onDiscordConnect function.
     // The parent is responsible for updating 'discordConnected' state and navigating.
     onDiscordConnect(); 
@@ -77,35 +77,41 @@ export default function JoinCommunityModal({ open, onClose, onDiscordConnect }: 
         <h2 className="text-2xl font-semibold text-center mb-2">
           Join our Community
         </h2>
-        <p className="text-center text-sm text-gray-600 mb-6">
+        <p className="text-center text-lg font-light text-[#000000] mb-6">
           To access the full collection and begin your NFT selection, please
           join our Discord community
         </p>
-        <label className="block mb-2 font-medium text-sm" htmlFor="email">
+        <label className="block mb-2 font-medium text-lg" htmlFor="email">
           Email address
         </label>
-        <div className="flex items-center bg-gray-200 rounded-lg px-4 py-2 mb-4">
-          <Mail className="text-gray-500 mr-3 w-5 h-5" />
+        <div className="flex items-center bg-[#E3E3E3] border-2 border-[#767676] rounded-lg px-4 py-4 mb-2">
+          <Mail className="text-[#000000] mr-3 w-5 h-5" />
           <input
             type="email"
             id="email"
             placeholder="your@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-transparent w-full outline-none text-sm"
+            className="bg-transparent w-full outline-none text-sm placeholder-[#000000]"
           />
         </div>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>} {/* Display error */}
         <button
-          onClick={handleJoin}
+          onClick={async () => {
+            // Set processing state and update button text before opening the link
+            setButtonProcessing(true);
+            // Wait a tick to ensure the UI updates before opening the new tab
+            await new Promise((resolve) => setTimeout(resolve, 100));
+            handleJoin();
+          }}
           disabled={!isValid || buttonProcessing} // Disable if invalid or processing
-          className={`w-full mt-4 py-2.5 rounded-lg font-medium ${
+          className={`w-full mt-2 py-3.5 rounded-lg font-medium ${
             isValid && !buttonProcessing
               ? "bg-black text-white"
-              : "bg-gray-400 text-gray-200 cursor-not-allowed"
+              : "bg-[#2C2C2C] text-gray-200 cursor-not-allowed"
           }`}
         >
-          {buttonProcessing ? "Connecting..." : "Join Discord & Continue"}
+          {buttonProcessing ? "Processing..." : "Join Discord & Continue"}
         </button>
         
         <p className="text-xs text-center text-gray-500 mt-4">

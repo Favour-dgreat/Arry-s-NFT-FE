@@ -43,7 +43,7 @@ export default function NFTDetailsClient({
   return (
     <>
       <Navbar
-        discordConnected={false}
+        discordConnected={true}
         onOpenModal={function (): void {
           throw new Error("Function not implemented.");
         }}
@@ -57,14 +57,15 @@ export default function NFTDetailsClient({
             }}
           >
             {/* Left column - Image */}
-            <div className="flex items-center w-5/6 h-5/6  justify-center bg-white rounded-lg p-4 shadow-md">
+            <div className="flex items-center rounded-sm w-6/6 h-5/6  justify-center bg-white p-4 shadow-md" 
+>
               <Image
                 src={nft.image}
                 alt={nft.title}
-                className="w-full h-auto rounded-lg object-contain"
+                className="w-full h-auto object-contain"
                 width={400}
                 height={350}
-                style={{ maxHeight: 400, width: "100%", objectFit: "contain" }}
+                style={{ maxHeight: 500, width: "100%", objectFit: "contain" }}
                 priority
               />
             </div>
@@ -141,7 +142,7 @@ export default function NFTDetailsClient({
                   <div
                     key={item.id}
                     className="flex-shrink-0 h-150 rounded-lg overflow-hidden cursor-pointer hover:border hover:border-gray-600 transition-all p-2"
-                    onClick={() => router.push(`/nft/${item.id}`)}
+                    onClick={() => router.push(`/NFTDetails/${item.id}`)}
                     style={{
                       background: "linear-gradient(135deg, #262E30, #060C0C00)",
                     }}
@@ -188,6 +189,7 @@ export default function NFTDetailsClient({
                           />
                           <span className="text-1xl flex-1">{item.price} ETH</span>
                           <button
+                            onClick={() => router.push(`/NFTDetails/${nft.id}`)}
                             className={cn(
                               "px-4 py-2.5 text-xs font-medium transition-colors duration-200",
                               "bg-gray-200 text-gray-700 hover:bg-gray-300",
@@ -195,6 +197,7 @@ export default function NFTDetailsClient({
                             )}
                             style={{borderRadius: "4px", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"}}  
                           >
+                            
                             Details
                           </button>
                         </div>

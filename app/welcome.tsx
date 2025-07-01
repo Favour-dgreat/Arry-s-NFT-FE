@@ -1,81 +1,54 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 const WelcomeScreen = () => {
   const router = useRouter();
-  const [currentScreen, setCurrentScreen] = React.useState(0);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  const screens = [
-    {
-      title: "WELCOME TO ARRY'S NFT",
-      image: "/images/image1.png"
-    },
-    {
-      title: "DISCOVER DIGITAL ARTS",
-      image: "/images/checkerboard.png"
-    },
-    {
-      title: "LOADING GALLERRY",
-      image: "/images/loader.png"
+  const handleVideoEnd = () => {
+    router.push('/gallery');
+  };
+
+  const handleSkip = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
     }
-  ];
-
-  React.useEffect(() => {
-    if (currentScreen < screens.length) {
-      const timer = setTimeout(() => {
-        setCurrentScreen(prev => prev + 1);
-      }, 8000);
-
-      return () => clearTimeout(timer);
-    } else {
-      router.push('/');
-    }
-  }, [currentScreen, router, screens.length]);
-
-  if (currentScreen >= screens.length) return null;
+    router.push('/gallery');
+  };
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center bg-white">
-      <motion.div
-        key={currentScreen}
-        initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        exit={{ opacity: 0, scale: 0.5, rotate: 180 }}
-        transition={{
-          duration: 2.8,
-          ease: "easeOut"
-        }}
-        className="relative w-50 h-50"
-      >
-        <img
-          src={screens[currentScreen].image}
-          alt="Animation"
-          className="w-full h-80 object-contain"
-        />
-      </motion.div>
-
-      <motion.h1
-        key={`title-${currentScreen}`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="mt-8 text-3xl font-bold font-fattip"
-      >
-        {screens[currentScreen].title}
-      </motion.h1>
-
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        onClick={() => router.push('/')}
-        className="mt-8 text-sm text-gray-400 hover:text-black transition-colors"
-      >
-        Skip Animation
-      </motion.button>
+    <div className="relative h-screen w-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-gray-800 overflow-hidden">
+      {/* Decorative blurred circles */}
+      <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-white opacity-10 rounded-full filter blur-3xl z-0" />
+      <div className="absolute bottom-[-120px] right-[-120px] w-[350px] h-[350px] bg-gray-400 opacity-10 rounded-full filter blur-3xl z-0" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 flex flex-col items-center">
+          <video
+            ref={videoRef}
+            src="/videos/loadingvideo.mp4"
+            width={400}
+            height={320}
+            className="w-full max-w-md h-80 object-contain rounded-xl shadow-lg border border-white/20"
+            autoPlay
+            muted
+            playsInline
+            onEnded={handleVideoEnd}
+          />
+          <button
+            onClick={handleSkip}
+            className="mt-8 px-6 py-2 rounded-full bg-gradient-to-r from-black to-gray-700 text-white font-semibold shadow-md hover:scale-105 hover:from-gray-700 hover:to-black transition-all duration-200"
+          >
+            Skip Animation
+          </button>
+        </div>
+        <div className="mt-8 text-center">
+          <h1 className="text-3xl font-bold text-white drop-shadow-lg mb-2">Welcome to Arry&apos;s NFT Gallery</h1>
+          <p className="text-lg text-white/80">Loading your experience...</p>
+        </div>
+      </div>
     </div>
   );
 };

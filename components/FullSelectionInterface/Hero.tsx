@@ -8,6 +8,8 @@ import { nftsByCollection } from '@/lib/data';
 import { ArrowUp, Filter, Link2 } from 'lucide-react';
 import UserRow from '@/components/UserRow';
 import { NFTCard } from '../ui/nft-card';
+import { useRouter } from 'next/navigation';
+
 import Link from 'next/link';
 const filters = [
   { id: 'all', label: 'All Categories' },
@@ -69,16 +71,16 @@ const featuredNFTs = [
     currentBid: 0.234,
   },
   {
-    id: 2,
-    image: '/images/2.png',
-    title: 'LIGHT BULB MOMENT',
+    id: 'lb-001',
+    image: '/images/light1.png',
+    title: 'EXPRESSIONISM NUMERO ONCE GENTLEMANO NUMERO ONCE',
     level: "v2 level",
     currentBid: 0.234,
   },
   {
-    id: 3,
-    image: '/images/art3.png',
-    title: 'DECONSTRUCT SERIES',
+    id: 'dec-001',
+    image: '/images/de1.png',
+    title: 'CHAPLIN\'S PARADOX - 1',
     level: "v2 level",
     currentBid: 0.234,
   }
@@ -86,6 +88,7 @@ const featuredNFTs = [
 
 // ...existing code...
 const HeroSection: React.FC = ({}) => {
+  const router = useRouter();
   const [activeFilter, setActiveFilter] = useState('all');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -209,13 +212,17 @@ const HeroSection: React.FC = ({}) => {
                     </div>
                   </div>
                   <button
-                    className={cn(
-                      "px-4 py-2.5 text-xs font-medium transition-colors duration-200",
-                      "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    )}
-                  >
-                    Details
-                  </button>
+            className={cn(
+              "px-4 py-2.5 text-xs font-medium transition-colors duration-200",
+              "bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-[2px]"
+            )}
+            onClick={(e) => {
+              e.stopPropagation();
+              router.push(`/NFTDetails/${nft.id}`);
+            }}
+          >
+            Details
+          </button>
                 </div>
               </div>
             </div>
@@ -324,7 +331,7 @@ const HeroSection: React.FC = ({}) => {
                     <div className="flex overflow-x-auto space-x-3 sm:space-x-4 pb-4 scrollbar-hide">
                       {nfts.map((nft: { id: string; image: string; title: string; description: string; subtitle: string; price: number; }) => (
                         <div key={nft.id} className="flex-shrink-0">
-                          <div className="w-64 sm:w-80 md:w-96 flex flex-col items-center justify-center">
+                          <div className="w-64 sm:w-80 md:w-96 flex flex-col items-center justify-center" onClick={() => router.push(`/NFTDetails/${nft.id}`)} style={{ background: 'linear-gradient(135deg, #262E30, #060C0C00)' }}>
                             <NFTCard item={nft} />
                           </div>
                         </div>

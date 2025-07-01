@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import JoinCommunityModal from "@/components/NFT/modal";
+
 interface GalleryProps {
-  setDiscordConnected: (connected: boolean) => void;
+  setDiscordConnected?: (connected: boolean) => void;
 }
 
 const nftCollection = [
@@ -64,9 +65,9 @@ const GalleryPage: React.FC<GalleryProps> = ({
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
-  const timer = setTimeout(() => setShowModal(true), 2000);
-  return () => clearTimeout(timer);
-}, []);
+    const timer = setTimeout(() => setShowModal(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -78,15 +79,6 @@ const GalleryPage: React.FC<GalleryProps> = ({
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
 
- 
-  const prevSlide = () => {
-    setIsAutoPlaying(false);
-    setDirection(-1);
-    setCurrentIndex(
-      (prev) => (prev - 1 + nftCollection.length) % nftCollection.length
-    );
-  };
-
   const currentNFT = nftCollection[currentIndex];
 
   return (
@@ -96,19 +88,18 @@ const GalleryPage: React.FC<GalleryProps> = ({
       open={showModal}
       onClose={() => setShowModal(false)}
       onDiscordConnect={() => {
-        setDiscordConnected(true);
+        setDiscordConnected?.(true);
         setShowModal(false);
       }}
       />
-      <header className="absolute top-0 right-0 z-10 ">
-        <Image
-          src="./images/pipe.png"
-          width={100}
-          height={100}
-          alt="Arry's Logo"
-          className="w-24 h-24 object-contain"
-        />
-      </header>
+     <JoinCommunityModal
+      open={showModal}
+      onClose={() => setShowModal(false)}
+      onDiscordConnect={() => {
+        setDiscordConnected?.(true);
+        setShowModal(false);
+      }}
+      />
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center px-8 py-16">

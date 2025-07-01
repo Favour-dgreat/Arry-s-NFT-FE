@@ -148,9 +148,11 @@ const GalleryPage: React.FC<GalleryProps> = ({
           {socialLinks.map((social) => (
             <Link key={social.icon} href={social.href}>
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-                <img
+                <Image
                   src={social.image}
                   alt={social.icon}
+                  width={24}
+                  height={24}
                   className="w-6 h-6 object-contain"
                 />
               </div>

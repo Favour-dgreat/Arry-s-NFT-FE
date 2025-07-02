@@ -13,7 +13,7 @@ export default function JoinCommunityModal({ open, onClose, onDiscordConnect }: 
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const [buttonProcessing, setButtonProcessing] = useState(false); // Manages the button's loading state
+  const [buttonProcessing, setButtonProcessing] = useState(false);
 
   useEffect(() => {
     // Reset state when the modal is closed
@@ -42,6 +42,8 @@ export default function JoinCommunityModal({ open, onClose, onDiscordConnect }: 
     // Simulate opening Discord in a new tab
     // In a real scenario, this might trigger an OAuth flow that redirects back
     window.open("https://discord.gg/your-server-code", "_blank");
+    // Navigate to /FullSelectionInterface after opening Discord
+    window.location.href = "/FullSelectionInterface";
     // const clientId = "YOUR_DISCORD_CLIENT_ID"; 
     // const redirectUri = encodeURIComponent(window.location.origin + "/discord-callback");
     // const discordOauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=identify%20guilds.join`;

@@ -91,10 +91,10 @@ export function RoadmapTimeline() {
             {/* Phase circle */}
             <div className={`absolute left-0 w-14 h-14 rounded-full flex items-center justify-center
             
-              ${phase.status === 'completed' ? 'bg-[#22C55E]' :
+              ${phase.status === 'completed' ? 'bg-[#FFFFFF]' :
                 phase.status === 'current' ? 'bg-[#8E8E93]' : 'bg-gray-700'}`}
                 style={{padding:"2px"}} >
-              <span className="text-xs font-medium">Phase {phase.number}</span>
+              <span className="text-xs font-medium text-black">Phase {phase.number}</span>
             </div>
             
             {/* Content box */}

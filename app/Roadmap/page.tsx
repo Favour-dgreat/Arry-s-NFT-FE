@@ -1,5 +1,6 @@
 import Footer from '@/components/Layout/Footer';
 import { RoadmapTimeline } from '@/components/roadmap/RoadmapTimeline';
+import Image from "next/image";
 
 export default function RoadmapPage() {
   return (
@@ -9,6 +10,15 @@ export default function RoadmapPage() {
         <p className="text-gray-[#F2F2F7] text-xl mb-8">
           Our vision for the future of Arry&apos;s NFT and the milestones we aim to achieve.
         </p>
+        <div className="flex text-center justify-center items-center">
+                      <Image
+                        src="./images/timeline.gif"
+                        alt="NFT Image"
+                        className="object-contain w-72 h-72 mr-8"
+                        width={156}
+                        height={156}
+                      />
+                    </div>
       </div>
       <RoadmapTimeline />
     <Footer />

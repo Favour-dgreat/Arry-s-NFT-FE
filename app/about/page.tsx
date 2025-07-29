@@ -24,58 +24,36 @@ const navigationButtons = [
 const nftCollection = [
   {
     id: 1,
-    number: "NO 1",
-    title: "THIS IS OUR CANVAS",
-    subtitle: "TAG &apos;s0&apos;s THE THINKER",
     image: "./images/BOWLR-COUNTERS4.png",
   },
   {
     id: 2,
-    number: "NO 2",
-    title: "DIGITAL EXPRESSION",
-    subtitle: "TAG &apos;s1&apos;s THE CREATOR",
     image: "./images/BOWLR-COUNTERS5.png",
   },
   {
     id: 3,
-    number: "NO 3",
-    title: "MODERN ARTISTRY",
-    subtitle: "TAG &apos;s2&apos;s THE VISIONARY",
     image: "./images/BOWLR-COUNTERS6.png",
   },
   {
     id: 4,
-    number: "NO 4",
-    title: "MODERN ARTISTRY",
-    subtitle: "TAG &apos;s2&apos;s THE VISIONARY",
     image: "./images/BOWLR-COUNTERS7.png",
   },
   {
     id: 5,
-    number: "NO 5",
-    title: "MODERN ARTISTRY",
-    subtitle: "TAG &apos;s2&apos;s THE VISIONARY",
     image: "./images/2.png",
   },
   {
     id: 6,
-    number: "NO 6",
-    title: "MODERN ARTISTRY",
-    subtitle: "TAG &apos;s2&apos;s THE VISIONARY",
     image: "./images/4.png",
   },
   {
     id: 7,
     number: "NO 7",
-    title: "MODERN ARTISTRY",
-    subtitle: "TAG &apos;s2&apos;s THE VISIONARY",
     image: "./images/6.png",
   },
   {
     id: 8,
     number: "NO 8",
-    title: "MODERN ARTISTRY",
-    subtitle: "TAG &apos;s2&apos;s THE VISIONARY",
     image: "./images/8.png",
   },
 ];
@@ -204,45 +182,50 @@ const AboutPage = () => {
           </h2>
         </motion.div>
         {/* Details */}
-        <div className="w-full items-center justify-center p-2">
-          <div
-            className="flex justify-center flex-row items-center mb-20 p-4 border-r-8 rounded-lg border-x-2 border-t-2"
+        <div className="w-full items-center justify-center p-4">
+          <div 
             style={{
-              borderImage:
-                "linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%) 1",
-              borderBottomStyle: "none",
+              borderRadius: "5px",
+              padding: "2px",
+              background:
+                "linear-gradient(to bottom, #000 20%, rgba(0,0,0,0) 100%)",
             }}
           >
-            <div className="flex flex-col items-start">
-              <Image
-                src="./images/WEB-NEWW3.png"
-                alt="NFT Image"
-                className="object-contain w-72 h-72 mr-8"
-                width={156}
-                height={156}
-              />
-            </div>
-            <div>
-              <p className="text-xl max-w-2xl mt-2 leading-relaxed bg-black text-white p-4 rounded-lg">
-                We want to use art to fund bringing back the Gentleman. To do
-                this; the Arry’s Bowlr NFT collection was conceived. 
-                <br></br>
-                <br></br>
-                We are designing 12&apos;000 unique NFT Bowlrs; initially
-                starting with 1001 pre-sale launch July 2025. Followed by 1999
-                in September 2025 Whitelist and then 8500 in December 2025.
-              </p>
-              <p className="flex text-center justify-center mt-4">
-                <a
-                  href="/FullSelectionInterface"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Shop the Collection
-                </a>
-                <span>
-                  <ShoppingCartIcon className="h-5 w-5" />
-                </span>
-              </p>
+            <div
+              className="flex p-20 gap-10 justify-center flex-row items-center"
+              style={{ borderRadius: "5px", background: "white" }}
+            >
+              <div className="flex flex-col items-start">
+                <Image
+                  src="./images/WEB-NEWW3.png"
+                  alt="NFT Image"
+                  className="object-contain w-72 h-72 mr-8"
+                  width={156}
+                  height={156}
+                />
+              </div>
+              <div>
+                <p className="text-lg max-w-xl mt-10 leading-relaxed bg-[#1E1E1E] text-white p-4 rounded-lg">
+                  We want to use art to fund bringing back the Gentleman. To do
+                  this; the Arry’s Bowlr NFT collection was conceived. 
+                  <br></br>
+                  We are designing 12&apos;000 unique NFT Bowlrs; initially
+                  starting with 1001 pre-sale launch July 2025. Followed by 1999
+                  in September 2025 Whitelist and then 8500 in December 2025.
+                </p>
+                <p className="flex text-center justify-center mt-4">
+                   <span>
+                    <ShoppingCartIcon className="h-5 w-5 " />
+                  </span>
+                   <a
+                    href="/FullSelectionInterface"
+                    style={{ textDecoration: "underline" }}
+                  >
+                     Shop the Collection
+                  </a>
+                 
+                </p>
+              </div>
             </div>
           </div>
           <div className="flex justify-center flex-row items-center">
@@ -266,8 +249,7 @@ const AboutPage = () => {
                     the following concepts were not understood:
                   </p>
                 }
-              >
-                <p>
+              > <p>
                   <ul>
                     <ol>1. A Gentleman Social Network</ol>
                     <ol>2. Butler APP</ol>
@@ -275,9 +257,9 @@ const AboutPage = () => {
                   </ul>
                   Today in a post-pandemic world, these concepts are now de
                   rigueur; The Manosphere is now a thing: CHATGPT is a reality
-                  and NFT’s come with utilities... If you would like to learn
+                  and NFT’s come with utilities...If you would like to learn
                   more about our original story, please click the link below to
-                  see our original offer:{" "}
+                  see our original offer:
                   <a
                     href="https://www.byinvitation.london"
                     style={{ textDecoration: "underline" }}
@@ -295,10 +277,10 @@ const AboutPage = () => {
                   <p>
                     In creating our original offer, we had struggled to package
                     our utilities. We chose fashion, as the Gentleman in a lot
-                    of people&apos;s perception was closely related to dress (See
-                    Instagram; Gentleman 21m+ followers) and we had an idea that
-                    if we could produce the best item of a particular class we
-                    would stand out in the market place.{" "}
+                    of people&apos;s perception was closely related to dress
+                    (See Instagram; Gentleman 21m+ followers) and we had an idea
+                    that if we could produce the best item of a particular class
+                    we would stand out in the market place.
                   </p>
                 }
               >
@@ -306,12 +288,12 @@ const AboutPage = () => {
                   We hadn&apos;t banked on the cost of getting that particular
                   message out. Instead, our price point (£155) meant people just
                   focused on our shirt being expensive and never really looked
-                  into the built-in elements; &apos;network&apos; &apos;rarity&apos; ‘utility&apos; and
-                  giving back 20% of our annual income to members to use as they
-                  please in facilitating gentlemanliness. This we entirely blame
-                  ourselves, we feel it is a result of our failure to succinctly
-                  present our offer and struggled to raise more funds to reach
-                  more audiences.
+                  into the built-in elements; &apos;network&apos;
+                  &apos;rarity&apos; ‘utility&apos; and giving back 20% of our
+                  annual income to members to use as they please in facilitating
+                  gentlemanliness. This we entirely blame ourselves, we feel it
+                  is a result of our failure to succinctly present our offer and
+                  struggled to raise more funds to reach more audiences.
                 </p>
               </SeeMore>
             </div>
@@ -343,10 +325,11 @@ const AboutPage = () => {
                     understanding of what utility is has gone mainstream and
                     changed the dynamics of understanding. Whereas before, we
                     engaged expensive accountants and Lawyers in creating a
-                    limited company to house 12&apos;000 shareholdings to give value,
-                    we can do the same thing today by offering just 1 NFT to:
-                    each person, because as a collective that 1 NFT will grow in
-                    much the same value as a shareholding (Smart Contract).
+                    limited company to house 12&apos;000 shareholdings to give
+                    value, we can do the same thing today by offering just 1 NFT
+                    to: each person, because as a collective that 1 NFT will
+                    grow in much the same value as a shareholding (Smart
+                    Contract).
                   </p>
                 }
               >
@@ -418,9 +401,9 @@ const AboutPage = () => {
                     of the modern Gentlemen” on
                     www.instagram.com/gentleman.fraternity sadly lost to
                     theft... From inception we have been referencing Rene
-                    Magritte&apos;s famed paintings especially &apos;the son of man&apos;s. It
-                    speaks to us of the self-realization that everyman could be
-                    a better man...
+                    Magritte&apos;s famed paintings especially &apos;the son of
+                    man&apos;s. It speaks to us of the self-realization that
+                    everyman could be a better man...
                   </p>
                 }
               >
@@ -493,12 +476,13 @@ const AboutPage = () => {
               <SeeMore
                 preview={
                   <p>
-                    Do you have to be a Gentleman to define “Gentlemanliness&apos;?
-                    Simple answer: No the thoughts and concepts surrounding the
-                    Gentleman are generally known and understood. Arry&apos;ss Bowlr
-                    NFT Collection is a gateway vision, bringing the Gentleman
-                    and Art together in an avantgarde NFT collection to inspire,
-                    engage and pique your interest in our cause.
+                    Do you have to be a Gentleman to define
+                    “Gentlemanliness&apos;? Simple answer: No the thoughts and
+                    concepts surrounding the Gentleman are generally known and
+                    understood. Arry&apos;ss Bowlr NFT Collection is a gateway
+                    vision, bringing the Gentleman and Art together in an
+                    avantgarde NFT collection to inspire, engage and pique your
+                    interest in our cause.
                   </p>
                 }
               >
@@ -506,13 +490,14 @@ const AboutPage = () => {
                   Our cause is subversion: A Clockwork Orange.. to raise funding
                   through Arry&apos;ss Bowlr NFT Collection to bring back the
                   Gentleman as set out in our road map: through our
-                  pre-conceived brand: &apos;sThe Fraternity & Co&apos;s which digitalises&apos;s
-                  the thoughts and concept of the Gentleman into readymade byte
-                  sized packages. We are now pivoting to an NFT Bowler
-                  Collection, to rebrand the &apos;sGentleman Avatar&apos;s into a Pop
-                  Culture Icon of cool, that represents modern &apos;sGentlemanliness&apos;s
-                  but also a must have art piece to hang at home, gallery, store
-                  or used as street wear or merchandising.
+                  pre-conceived brand: &apos;sThe Fraternity & Co&apos;s which
+                  digitalises&apos;s the thoughts and concept of the Gentleman
+                  into readymade byte sized packages. We are now pivoting to an
+                  NFT Bowler Collection, to rebrand the &apos;sGentleman
+                  Avatar&apos;s into a Pop Culture Icon of cool, that represents
+                  modern &apos;sGentlemanliness&apos;s but also a must have art
+                  piece to hang at home, gallery, store or used as street wear
+                  or merchandising.
                 </p>
               </SeeMore>
             </div>
@@ -571,9 +556,9 @@ const AboutPage = () => {
               <SeeMore
                 preview={
                   <p>
-                    Through buying Arry&apos;ss NFT Bowlr&apos;ss, you help fund the
-                    creation of a community that can define what Gentlemanliness
-                    should be for the 21st century:
+                    Through buying Arry&apos;ss NFT Bowlr&apos;ss, you help fund
+                    the creation of a community that can define what
+                    Gentlemanliness should be for the 21st century:
                     <ol>
                       <li> A. Through a Gentleman&apos;ss Algorithm </li>
                       <li> B. Through a Gentleman&apos;s Butler APP </li>
@@ -601,13 +586,13 @@ const AboutPage = () => {
               <SeeMore
                 preview={
                   <p>
-                    In Gentleman&apos;ss Algorithm: The Gentleman’s algorithm maybe
-                    the single biggest evolution to Men’s lifestyle in the 21st
-                    century. Currently, the Gentleman is used to sell everything
-                    from aftershave to Cars; it is the epitome of manhood. Yet
-                    there are less and less Gentlemen and even more tragic, men
-                    aren’t interested in being Gentlemen. In a cost benefits
-                    analysis it simply ... doesn’t reward them.
+                    In Gentleman&apos;ss Algorithm: The Gentleman’s algorithm
+                    maybe the single biggest evolution to Men’s lifestyle in the
+                    21st century. Currently, the Gentleman is used to sell
+                    everything from aftershave to Cars; it is the epitome of
+                    manhood. Yet there are less and less Gentlemen and even more
+                    tragic, men aren’t interested in being Gentlemen. In a cost
+                    benefits analysis it simply ... doesn’t reward them.
                   </p>
                 }
               >
@@ -615,13 +600,13 @@ const AboutPage = () => {
                   This is exactly what the algorithm we are developing does. It
                   rewards the ‘everyman’ for being a Gentleman. - the more
                   gentlemanly a fellow is, the more premium utilities they will
-                  be eligible for starting with GENTLEMAN&apos;sS QUALITY OF LIFE
-                  which offers AN/PRDBO&apos;ss (Access, Networking, Privileges,
-                  Rewards, Discounts, Benefits & Offers), PRIVY EVENTS and KEYS
-                  TO LONDON. The ‘IP’ we are building is what makes our offer
-                  remarkable, enabling members to constantly improve and adjust
-                  their quality of life, increase their sphere of influence, and
-                  pursue self-development.
+                  be eligible for starting with GENTLEMAN&apos;sS QUALITY OF
+                  LIFE which offers AN/PRDBO&apos;ss (Access, Networking,
+                  Privileges, Rewards, Discounts, Benefits & Offers), PRIVY
+                  EVENTS and KEYS TO LONDON. The ‘IP’ we are building is what
+                  makes our offer remarkable, enabling members to constantly
+                  improve and adjust their quality of life, increase their
+                  sphere of influence, and pursue self-development.
                 </p>
               </SeeMore>
             </div>
@@ -665,14 +650,14 @@ const AboutPage = () => {
                   Butler understands you. It knows what you do, it knows what
                   you like, it knows the people you know, it is aware of your
                   habits, and is confidential to you. The Butler App will help
-                  plan your life, and manage your AN/PRDBO&apos;ss. The lifestyle
-                  concierge service costs £1 per request and is a modern Yellow
-                  Pages, that aims to save you time, improve your quality of
-                  life, delegate life tasks to an expert, provide insider
-                  knowledge, tips, and a recommendation service, upon request.
-                  Founding Fellows will be requested to help &apos;siron out the
-                  kinks&apos;s by providing feedback before we release more invites
-                  for new Fellows.
+                  plan your life, and manage your AN/PRDBO&apos;ss. The
+                  lifestyle concierge service costs £1 per request and is a
+                  modern Yellow Pages, that aims to save you time, improve your
+                  quality of life, delegate life tasks to an expert, provide
+                  insider knowledge, tips, and a recommendation service, upon
+                  request. Founding Fellows will be requested to help
+                  &apos;siron out the kinks&apos;s by providing feedback before
+                  we release more invites for new Fellows.
                 </p>
               </SeeMore>
             </div>
@@ -694,9 +679,9 @@ const AboutPage = () => {
               >
                 <p>
                   A new premium utility service, that we have titled The
-                  Gentleman&apos;ss Quality of Life (GQOL), aims to provide members
-                  the following utilities: Reputation, AN/PRDBOs, Keys to
-                  London, Privy Events, Butler, Concierge, and Sartorial &
+                  Gentleman&apos;ss Quality of Life (GQOL), aims to provide
+                  members the following utilities: Reputation, AN/PRDBOs, Keys
+                  to London, Privy Events, Butler, Concierge, and Sartorial &
                   Product Lines, and AN/PRDBOs. Brought to you through a
                   platform we describe as Technological Luxury, this denotes
                   mixing old world luxury with new world technologies.
@@ -728,17 +713,18 @@ const AboutPage = () => {
               <SeeMore
                 preview={
                   <p>
-                    The Fraternity & Co&apos;ss base is London; the original home of
-                    the &apos;sGentleman&apos;s and the home of the earliest key Gentleman
-                    clubs. This gives us historical precedence and market
-                    credibility to gain critical mass globally. It is also where
-                    we Beta-test our city offers, starting with ‘Keys To London’
-                    service before we take it global, which is ... essentially a
-                    quality-of-life index, managed by your Butler App (Beta
-                    Summer 2026) and also through our concierge services. KEYS
-                    TO LONDON (2026) will provide daily premium utilities:
-                    Breakfast Club (7am-12pm), Sir Lunch a Lot (12pm-6pm),
-                    Supper Club (6pm-12am), and Le Bon Viveur (24hrs).
+                    The Fraternity & Co&apos;ss base is London; the original
+                    home of the &apos;sGentleman&apos;s and the home of the
+                    earliest key Gentleman clubs. This gives us historical
+                    precedence and market credibility to gain critical mass
+                    globally. It is also where we Beta-test our city offers,
+                    starting with ‘Keys To London’ service before we take it
+                    global, which is ... essentially a quality-of-life index,
+                    managed by your Butler App (Beta Summer 2026) and also
+                    through our concierge services. KEYS TO LONDON (2026) will
+                    provide daily premium utilities: Breakfast Club (7am-12pm),
+                    Sir Lunch a Lot (12pm-6pm), Supper Club (6pm-12am), and Le
+                    Bon Viveur (24hrs).
                   </p>
                 }
               >
@@ -766,14 +752,15 @@ const AboutPage = () => {
                     It is the responsibility of a Gentleman to lead an
                     interesting life” Our first services are PRIVY EVENTS;
                     therefore we aim to throw the best parties, pop-ups and
-                    events, on a weekly and monthly basis in London&apos;ss finest,
-                    underutilized real estate – part of our GENTLEMAN&apos;sS QUALITY
-                    OF LIFE service. Giving fellows ... essentially a
-                    quality-of-life index, managed by your Butler App (Beta
-                    Summer 2026) and also through our concierge services. KEYS
-                    TO LONDON (2026) will provide daily premium utilities:
-                    Breakfast Club (7am-12pm), Sir Lunch a Lot (12pm-6pm),
-                    Supper Club (6pm-12am), and Le Bon Viveur (24hrs).
+                    events, on a weekly and monthly basis in London&apos;ss
+                    finest, underutilized real estate – part of our
+                    GENTLEMAN&apos;sS QUALITY OF LIFE service. Giving fellows
+                    ... essentially a quality-of-life index, managed by your
+                    Butler App (Beta Summer 2026) and also through our concierge
+                    services. KEYS TO LONDON (2026) will provide daily premium
+                    utilities: Breakfast Club (7am-12pm), Sir Lunch a Lot
+                    (12pm-6pm), Supper Club (6pm-12am), and Le Bon Viveur
+                    (24hrs).
                   </p>
                 }
               >
@@ -837,12 +824,12 @@ const AboutPage = () => {
                   Houses based on the legendary 12 Knights. All new Fellows will
                   be randomly placed in one 12 houses by AI. Fosters Traditions,
                   Fraternity, Allegiance, Esprit de Corps. Competitions, Clubs,
-                  Sportsmanship, Charity, Volunteering and Mentorship. You&apos;sll
-                  gain access to a vast network of like-minded individuals
-                  (Gentlemen), exposure to leading edge information, general
-                  advice, sporting & gaming clubs, high quality events, the
-                  latest tools and resources, and opportunities to interact with
-                  peers & chapters worldwide.
+                  Sportsmanship, Charity, Volunteering and Mentorship.
+                  You&apos;sll gain access to a vast network of like-minded
+                  individuals (Gentlemen), exposure to leading edge information,
+                  general advice, sporting & gaming clubs, high quality events,
+                  the latest tools and resources, and opportunities to interact
+                  with peers & chapters worldwide.
                 </p>
               </SeeMore>
             </div>
@@ -909,20 +896,21 @@ const AboutPage = () => {
                     decisions for thousands of years. We are moving towards a
                     “socialstructed” world: a new economy where your web
                     influence and social connections will matter just as much as
-                    the money in your bank account. This &apos;sreputation economy&apos;s is
-                    ... already happening, where the individual social graph —
-                    the social data set about each person — determines one&apos;ss
-                    value in society, access to services, and employability. In
-                    this economy, reputation becomes currency:
+                    the money in your bank account. This &apos;sreputation
+                    economy&apos;s is ... already happening, where the
+                    individual social graph — the social data set about each
+                    person — determines one&apos;ss value in society, access to
+                    services, and employability. In this economy, reputation
+                    becomes currency:
                   </p>
                 }
               >
                 <p>
-                  see modern day &apos;sInfluencers&apos;s social media. A.I. is here and we
-                  believe that reputation is about to become a capital asset.
-                  The Fraternity & Co aims to be at the fore front of the
-                  reputation economy through creating the algorithm for 21st
-                  Century Gentleman.
+                  see modern day &apos;sInfluencers&apos;s social media. A.I. is
+                  here and we believe that reputation is about to become a
+                  capital asset. The Fraternity & Co aims to be at the fore
+                  front of the reputation economy through creating the algorithm
+                  for 21st Century Gentleman.
                 </p>
               </SeeMore>
             </div>
@@ -932,31 +920,31 @@ const AboutPage = () => {
               <SeeMore
                 preview={
                   <p>
-                    The word &apos;sGentleman&apos;s is widely used and renown worldwide,
-                    and in the literal sense has no ownership, no clear
-                    interpretation but generates billions in revenues annually
-                    for those that chose to capitalize on it. Today, there are
-                    21.3 million people interested in posts about the Gentleman
-                    on the top 200 Gentleman&apos;ss Instagram Pages. These followers
-                    actively engage and buy into brands and ... influencers that
-                    use the term, Gentleman; major luxury manufacturers, engage
-                    in this space through sponsorship, advertising and
-                    promotions, spending millions actively promoting their
-                    luxury goods.
+                    The word &apos;sGentleman&apos;s is widely used and renown
+                    worldwide, and in the literal sense has no ownership, no
+                    clear interpretation but generates billions in revenues
+                    annually for those that chose to capitalize on it. Today,
+                    there are 21.3 million people interested in posts about the
+                    Gentleman on the top 200 Gentleman&apos;ss Instagram Pages.
+                    These followers actively engage and buy into brands and ...
+                    influencers that use the term, Gentleman; major luxury
+                    manufacturers, engage in this space through sponsorship,
+                    advertising and promotions, spending millions actively
+                    promoting their luxury goods.
                   </p>
                 }
               >
                 <p>
-                  The word &apos;sGentleman&apos;s is widely used and renown worldwide, and
-                  in the literal sense has no ownership, no clear interpretation
-                  but generates billions in revenues annually for those that
-                  chose to capitalize on it. Today, there are 21.3 million
-                  people interested in posts about the Gentleman on the top 200
-                  Gentleman&apos;ss Instagram Pages. These followers actively engage
-                  and buy into brands and ... influencers that use the term,
-                  Gentleman; major luxury manufacturers, engage in this space
-                  through sponsorship, advertising and promotions, spending
-                  millions actively promoting their luxury goods.
+                  The word &apos;sGentleman&apos;s is widely used and renown
+                  worldwide, and in the literal sense has no ownership, no clear
+                  interpretation but generates billions in revenues annually for
+                  those that chose to capitalize on it. Today, there are 21.3
+                  million people interested in posts about the Gentleman on the
+                  top 200 Gentleman&apos;ss Instagram Pages. These followers
+                  actively engage and buy into brands and ... influencers that
+                  use the term, Gentleman; major luxury manufacturers, engage in
+                  this space through sponsorship, advertising and promotions,
+                  spending millions actively promoting their luxury goods.
                 </p>
               </SeeMore>
             </div>
@@ -989,21 +977,21 @@ const AboutPage = () => {
                     We will initially be launching with 1500 NFTS Bowler supreme
                     collection July 2025. Administration will be put in place
                     for growth and prepare for marketing the next 3 collections.
-                    Thereafter, the ‘1001&apos;s will be launched and presented in
-                    September 2025.{" "}
+                    Thereafter, the ‘1001&apos;s will be launched and presented
+                    in September 2025.{" "}
                   </p>
                 }
               >
                 <p>
                   The third collection: 1999 (Surreal Collection) December 2025
                   The final collection: (AI Collection) January 2026 will grow
-                  the membership to 12&apos;s000 and will enable us to build out the
-                  first working app.{" "}
+                  the membership to 12&apos;s000 and will enable us to build out
+                  the first working app.{" "}
                   <a href="/Roadmap" style={{ textDecoration: "underline" }}>
                     (See Roadmap)
                   </a>{" "}
-                  . We will begin to offer our first services and the &apos;sButler&apos;s
-                  will become omni present.
+                  . We will begin to offer our first services and the
+                  &apos;sButler&apos;s will become omni present.
                 </p>
               </SeeMore>
             </div>

@@ -108,7 +108,7 @@ export default function NFTMintingPage() {
                   <h2 className="text-[#AAAAAA] text-sm">Current Bid</h2>
                   <div className="flex items-center mt-1">
                     <Image
-                      src="../../images/ethicon.png"
+                      src="../../images/ic_etc.png"
                       alt="ETH"
                       className="w-8 h-8 mr-2"
                       width={16}

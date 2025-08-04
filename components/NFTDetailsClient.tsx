@@ -109,7 +109,7 @@ export default function NFTDetailsClient({
                   <h2 className="text-gray-400">Current Bid</h2>
                   <div className="flex items-center mt-1">
                     <Image
-                      src="../../images/ethicon.png"
+                      src="../../images/ic_etc.png"
                       alt="ETH"
                       className="w-8 h-8 mr-2"
                       width={16}
@@ -181,7 +181,7 @@ export default function NFTDetailsClient({
                        
                         <div className="flex items-center mt-1">
                           <Image
-                            src="../images/ethicon.png"
+                            src="../images/ic_etc.png"
                             alt="ETH"
                             className="mr-2"
                             width={18}

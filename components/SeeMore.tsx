@@ -10,7 +10,7 @@ interface SeeMoreProps {
 const SeeMore: React.FC<SeeMoreProps> = ({ preview, children }) => {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="text-lg max-w-xl text-center leading-relaxed text-black">
+    <div className="md:text-lg max-w-xl sm:text-xs text-center leading-normal text-black">
       {preview}
       {expanded && <div className="mt-2">{children}</div>}
       <button

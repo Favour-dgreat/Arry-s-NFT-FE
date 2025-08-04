@@ -79,11 +79,11 @@ export default function JoinCommunityModal({ open, onClose, onDiscordConnect }: 
         <h2 className="text-2xl font-semibold text-center mb-2">
           Join our Community
         </h2>
-        <p className="text-center text-lg font-light text-[#000000] mb-6">
+        <p className="text-center text-base font-light text-[#000000] mb-6">
           To access the full collection and begin your NFT selection, please
           join our Discord community
         </p>
-        <label className="block mb-2 font-medium text-lg" htmlFor="email">
+        <label className="block mb-2 font-medium text-base" htmlFor="email">
           Email address
         </label>
         <div className="flex items-center bg-[#E3E3E3] border-2 border-[#767676] rounded-lg px-4 py-4 mb-2">

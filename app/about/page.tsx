@@ -90,145 +90,147 @@ const AboutPage = () => {
     scrollRef.current?.scrollBy({ left: itemWidth, behavior: "smooth" });
   };
   return (
-    <div className=" min-h-screen bg-white text-black flex flex-col flex-1 items-center justify-center">
-      <main className="flex-1 flex flex-col items-center justify-center px-8 py-16">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-5"
+  <div className="min-h-screen bg-white text-black flex flex-col flex-1 items-center justify-center">
+  <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8 py-8 sm:py-16">
+    {/* Title */}
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-5"
+    >
+      <h1 className="text-4xl sm:text-6xl md:text-8xl font-fattip font-black">
+        &apos;ARRY&apos;S
+      </h1>
+      <h2 className="text-center max-w-xl text-base sm:text-lg leading-relaxed">
+        THE ART OF THE MODERN GENTLEMAN
+      </h2>
+    </motion.div>
+
+    <div className="w-full flex items-center justify-center mb-4">
+      <Image
+        src={"./images/image2.png"}
+        alt="Current NFT"
+        className="object-cover w-56 h-56 sm:w-96 sm:h-96"
+        width={220}
+        height={220}
+      />
+    </div>
+
+    {/* NFT Showcase */}
+    <div className="relative w-full max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto overflow-hidden mb-8">
+      <div className="relative overflow-hidden">
+        <div
+          ref={scrollRef}
+          className="flex space-x-3 sm:space-x-4 overflow-x-auto scrollbar-hide px-2 py-4"
+          style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
         >
-          <h1 className="text-6xl md:text-8xl font-fattip font-black">
-            &apos;ARRY&apos;S
-          </h1>
-          <h2 className="text-center max-w-1xl text-lg leading-relaxed">
-            THE ART OF THE MODERN GENTLEMAN
-          </h2>
-        </motion.div>
-
-        <div className="w-full flex items-center justify-center">
-          <Image
-            src={"./images/image2.png"}
-            alt="Current NFT"
-            className="object-cover w-96 h-96"
-            width={220}
-            height={220}
-          />
-        </div>
-
-        {/* NFT Showcase */}
-        <div className="relative w-full max-w-7xl mx-auto overflow-hidden mb-8">
-          <div className="relative overflow-hidden">
+          {nftCollection.map((nft, index) => (
             <div
-              ref={scrollRef}
-              className="flex space-x-4 overflow-x-auto scrollbar-hide px-2 py-4"
-              style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
+              key={index}
+              className="min-w-[140px] sm:min-w-[200px] md:min-w-[240px] h-40 sm:h-60 flex-shrink-0 flex items-center justify-center"
             >
-              {nftCollection.map((nft, index) => (
-                <div
-                  key={index}
-                  className="min-w-[240px] h-60 flex-shrink-0 flex items-center justify-center "
-                >
-                  <Image
-                    src={nft.image}
-                    alt={`NFT ${index}`}
-                    className="object-contain w-full h-full"
-                    width={120}
-                    height={120}
-                  />
-                </div>
-              ))}
+              <Image
+                src={nft.image}
+                alt={`NFT ${index}`}
+                className="object-contain w-full h-full"
+                width={120}
+                height={120}
+              />
             </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={scrollLeft}
-            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-black rounded-full shadow-md p-2 hover:bg-gray-200 z-10"
-            aria-label="Scroll Left"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={scrollRight}
-            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black rounded-full shadow-md p-2 hover:bg-gray-200 z-10"
-            aria-label="Scroll Right"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+          ))}
         </div>
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center max-w-1xl mb-8 text-lg leading-relaxed"
+      </div>
+      {/* Navigation Buttons */}
+      <button
+        onClick={scrollLeft}
+        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-black rounded-full shadow-md p-2 hover:bg-gray-200 z-10"
+        aria-label="Scroll Left"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={scrollRight}
+        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black rounded-full shadow-md p-2 hover:bg-gray-200 z-10"
+        aria-label="Scroll Right"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+    {/* Description */}
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="text-center max-w-xl sm:max-w-2xl mb-8 text-base sm:text-lg leading-relaxed px-2"
+    >
+      RE-INVENTING THE BOWLER HAT MEANING AND USAGE FOR THE 21ST CENTURY
+    </motion.p>
+    {/* Title */}
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-8"
+    >
+      <h1 className="text-4xl sm:text-6xl md:text-8xl font-fattip font-black border-2 sm:border-4 border-black p-3 sm:p-5 mb-2">
+        &apos;ARRY&apos;S
+      </h1>
+      <h2 className="text-center max-w-xl mb-2 text-base sm:text-lg leading-relaxed">
+        Gentlemen + Art + Community
+      </h2>
+    </motion.div>
+    {/* Details */}
+    <div className="w-full items-center justify-center p-2 sm:p-4">
+      <div
+        style={{
+          borderRadius: "5px",
+          padding: "2px",
+          background:
+            "linear-gradient(to bottom, #000 20%, rgba(0,0,0,0) 100%)",
+        }}
+      >
+        <div
+          className="flex flex-col sm:flex-row p-4 sm:p-10 gap-4 sm:gap-5 justify-center items-center"
+          style={{ borderRadius: "5px", background: "white" }}
         >
-          RE-INVENTING THE BOWLER HAT MEANING AND USAGE FOR THE 21ST CENTURY
-        </motion.p>
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-8"
-        >
-          <h1 className="text-6xl md:text-8xl font-fattip font-black border-4 border-black p-5 mb-2">
-            &apos;ARRY&apos;S
-          </h1>
-          <h2 className="text-center max-w-1xl mb-2 text-lg leading-relaxed">
-            Gentlemen + Art + Community
-          </h2>
-        </motion.div>
-        {/* Details */}
-        <div className="w-full items-center justify-center p-4">
-          <div 
-            style={{
-              borderRadius: "5px",
-              padding: "2px",
-              background:
-                "linear-gradient(to bottom, #000 20%, rgba(0,0,0,0) 100%)",
-            }}
-          >
-            <div
-              className="flex p-20 gap-10 justify-center flex-row items-center"
-              style={{ borderRadius: "5px", background: "white" }}
-            >
-              <div className="flex flex-col items-start">
-                <Image
-                  src="./images/WEB-NEWW3.png"
-                  alt="NFT Image"
-                  className="object-contain w-72 h-72 mr-8"
-                  width={156}
-                  height={156}
-                />
-              </div>
-              <div>
-                <p className="text-lg max-w-xl mt-10 leading-relaxed bg-[#1E1E1E] text-white p-4 rounded-lg">
-                  We want to use art to fund bringing back the Gentleman. To do
-                  this; the Arry’s Bowlr NFT collection was conceived. 
-                  <br></br>
-                  We are designing 12&apos;000 unique NFT Bowlrs; initially
-                  starting with 1001 pre-sale launch July 2025. Followed by 1999
-                  in September 2025 Whitelist and then 8500 in December 2025.
-                </p>
-                <p className="flex text-center justify-center mt-4">
-                   <span>
-                    <ShoppingCartIcon className="h-5 w-5 " />
-                  </span>
-                   <a
-                    href="/FullSelectionInterface"
-                    style={{ textDecoration: "underline" }}
-                  >
-                     Shop the Collection
-                  </a>
-                 
-                </p>
-              </div>
-            </div>
+          <div className="flex flex-col items-start mb-4 sm:mb-0">
+            <Image
+              src="./images/WEB-NEWW3.png"
+              alt="NFT Image"
+              className="object-contain w-40 h-40 sm:w-72 sm:h-72 mr-0 sm:mr-8"
+              width={156}
+              height={156}
+            />
           </div>
-          <div className="flex justify-center flex-row items-center">
+          <div>
+            <p className="text-base md:text-lg max-w-xl sm:text-xs sm:max-w-xl mt-4 sm:mt-10 leading-relaxed bg-[#1E1E1E] text-white p-2 sm:p-4 rounded-lg">
+              We want to use art to fund bringing back the Gentleman. 
+               <br />
+              To do this; the Arry’s Bowlr NFT collection was conceived. 
+              <br />
+              We are designing 12&apos;000 unique NFT Bowlrs; initially
+              starting with 1001 pre-sale launch July 2025. Followed by 1999
+              in September 2025 Whitelist and then 8500 in December 2025.
+            </p>
+            <p className="flex text-center justify-center mt-2 sm:mt-4">
+              <span>
+                <ShoppingCartIcon className="h-5 w-5" />
+              </span>
+              <a
+                href="/FullSelectionInterface"
+                style={{ textDecoration: "underline" }}
+              >
+                Shop the Collection
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* All paired sections below */}
+      {/** For each paired section, add responsive flex-col on mobile, flex-row on desktop */}
+      {/* Example for one section, repeat for others */}
+      <div className="flex justify-center flex-row items-center">
             <div className="flex text-center flex-col items-start">
               <Image
                 src="./images/about1.png"
@@ -238,10 +240,10 @@ const AboutPage = () => {
                 height={156}
               />
             </div>
-            <div className="p-6 space-y-6">
+            <div className="p-6  space-y-6">
               <SeeMore
                 preview={
-                  <p>
+                  <p >
                     The story of Arry’s Bowlr NFT came about when the
                     co-founders of The Fraternity & Co: Tunde + Sam wanted to
                     retell their story in a post-pandemic world. We struggled
@@ -249,7 +251,8 @@ const AboutPage = () => {
                     the following concepts were not understood:
                   </p>
                 }
-              > <p>
+              >
+                <p>
                   <ul>
                     <ol>1. A Gentleman Social Network</ol>
                     <ol>2. Butler APP</ol>
@@ -270,6 +273,7 @@ const AboutPage = () => {
               </SeeMore>
             </div>
           </div>
+
           <div className="flex justify-center flex-row items-center">
             <div className="p-6 space-y-6">
               <SeeMore
@@ -284,7 +288,7 @@ const AboutPage = () => {
                   </p>
                 }
               >
-                <p>
+               <p>
                   We hadn&apos;t banked on the cost of getting that particular
                   message out. Instead, our price point (£155) meant people just
                   focused on our shirt being expensive and never really looked
@@ -307,6 +311,8 @@ const AboutPage = () => {
               />
             </div>
           </div>
+
+         
           <div className="flex justify-center flex-row items-center">
             <div className="flex text-center flex-col items-start">
               <Image
@@ -327,14 +333,14 @@ const AboutPage = () => {
                     engaged expensive accountants and Lawyers in creating a
                     limited company to house 12&apos;000 shareholdings to give
                     value, we can do the same thing today by offering just 1 NFT
-                    to: each person, because as a collective that 1 NFT will
-                    grow in much the same value as a shareholding (Smart
-                    Contract).
+                    to:..
                   </p>
                 }
               >
                 <p>
-                  This critical mass means today we can re-present our offering
+                  each person, because as a collective that 1 NFT will
+                    grow in much the same value as a shareholding (Smart
+                    Contract). This critical mass means today we can re-present our offering
                   through NFT and give added value in each NFT we produce.
                   Please see our original offer:{" "}
                   <a
@@ -348,12 +354,11 @@ const AboutPage = () => {
               </SeeMore>
             </div>
           </div>
-
           <div className="flex justify-center flex-row items-center">
             <div className="p-6 space-y-6">
               <SeeMore
                 preview={
-                  <p>
+                    <p>
                     400 Legacy Fellows joined us - Thank you - We will now be
                     closing the Legacy Fellowship at 400. Your contribution is
                     forever appreciated and will be memorialized in an updated
@@ -381,7 +386,10 @@ const AboutPage = () => {
                 height={156}
               />
             </div>
+            
           </div>
+
+          
 
           <div className="flex justify-center flex-row items-center">
             <div className="flex text-center flex-col items-start">
@@ -482,7 +490,7 @@ const AboutPage = () => {
                     understood. Arry&apos;ss Bowlr NFT Collection is a gateway
                     vision, bringing the Gentleman and Art together in an
                     avantgarde NFT collection to inspire, engage and pique your
-                    interest in our cause.
+                    interest in our cause...
                   </p>
                 }
               >
@@ -564,8 +572,8 @@ const AboutPage = () => {
                       <li> B. Through a Gentleman&apos;s Butler APP </li>
                       <li>
                         {" "}
-                        C. The Fraternity & Co - An online Gentleman&apos;ss
-                        Fraternity{" "}
+                        C. The Fraternity & Co - An online Gentleman&apos;s
+                        Fraternity
                       </li>
                     </ol>
                   </p>
@@ -591,13 +599,12 @@ const AboutPage = () => {
                     21st century. Currently, the Gentleman is used to sell
                     everything from aftershave to Cars; it is the epitome of
                     manhood. Yet there are less and less Gentlemen and even more
-                    tragic, men aren’t interested in being Gentlemen. In a cost
-                    benefits analysis it simply ... doesn’t reward them.
+                    tragic, men aren’t interested in being Gentlemen...
                   </p>
                 }
               >
                 <p>
-                  This is exactly what the algorithm we are developing does. It
+                  In a cost benefits analysis it simply ... doesn’t reward them.This is exactly what the algorithm we are developing does. It
                   rewards the ‘everyman’ for being a Gentleman. - the more
                   gentlemanly a fellow is, the more premium utilities they will
                   be eligible for starting with GENTLEMAN&apos;sS QUALITY OF
@@ -639,7 +646,7 @@ const AboutPage = () => {
                     (1) Westminster (2) Eaton (3) Oxford (4) Cambridge Each
                     phase will be tested through Founding Fellows and thereafter
                     Fellows, allowing each member to leave its mark on the
-                    algorithm.
+                    algorithm...
                   </p>
                 }
               >
@@ -673,7 +680,7 @@ const AboutPage = () => {
                     through participation, engagement and the reputation
                     algorithm: as a Gentleman. The Fraternity & Co is a
                     by-invitation social network that combines 2 venerable
-                    traditions: The Gentleman & Fraternity.
+                    traditions: The Gentleman & Fraternity...
                   </p>
                 }
               >
@@ -714,10 +721,15 @@ const AboutPage = () => {
                 preview={
                   <p>
                     The Fraternity & Co&apos;ss base is London; the original
-                    home of the &apos;sGentleman&apos;s and the home of the
+                    home of the Gentleman and the home of the
                     earliest key Gentleman clubs. This gives us historical
                     precedence and market credibility to gain critical mass
-                    globally. It is also where we Beta-test our city offers,
+                    globally...
+                  </p>
+                }
+              >
+                <p>
+                  It is also where we Beta-test our city offers,
                     starting with ‘Keys To London’ service before we take it
                     global, which is ... essentially a quality-of-life index,
                     managed by your Butler App (Beta Summer 2026) and also
@@ -725,10 +737,6 @@ const AboutPage = () => {
                     provide daily premium utilities: Breakfast Club (7am-12pm),
                     Sir Lunch a Lot (12pm-6pm), Supper Club (6pm-12am), and Le
                     Bon Viveur (24hrs).
-                  </p>
-                }
-              >
-                <p>
                   These premium utilities are all free except for Le Bon Viveur
                   which is for customized requests. Whatever you seek in London
                   will be listed in a personalized and context-aware manner
@@ -754,17 +762,18 @@ const AboutPage = () => {
                     therefore we aim to throw the best parties, pop-ups and
                     events, on a weekly and monthly basis in London&apos;ss
                     finest, underutilized real estate – part of our
-                    GENTLEMAN&apos;sS QUALITY OF LIFE service. Giving fellows
+                    GENTLEMAN&apos;S QUALITY OF LIFE service... 
+                  </p>
+                }
+              >
+                <p>
+                  Giving fellows
                     ... essentially a quality-of-life index, managed by your
                     Butler App (Beta Summer 2026) and also through our concierge
                     services. KEYS TO LONDON (2026) will provide daily premium
                     utilities: Breakfast Club (7am-12pm), Sir Lunch a Lot
                     (12pm-6pm), Supper Club (6pm-12am), and Le Bon Viveur
                     (24hrs).
-                  </p>
-                }
-              >
-                <p>
                   These premium utilities are all free except for Le Bon Viveur
                   which is for customized requests. Whatever you seek in London
                   will be listed in a personalized and context-aware manner
@@ -844,15 +853,16 @@ const AboutPage = () => {
                     been over eulogized and good men ignored. Social media is
                     amplifying the spread of cynical marketing where negativity
                     is easier to sell than positivity. Men in the 21st century:
-                    Who we are? What do we want to become? How can manliness be
-                    less stigmatized? Our business focuses on men and their role
-                    in modern societies i.e. how can we become better, improve
-                    ourselves, lead a better life, give back and make the world
-                    a better place.
+                    Who we are? What do we want to become?  How can manliness be
+                    less stigmatized?..
                   </p>
                 }
               >
                 <p>
+                 Our business focuses on men and their role
+                    in modern societies i.e. how can we become better, improve
+                    ourselves, lead a better life, give back and make the world
+                    a better place.
                   Historically, we read and aspire to be different men;
                   warriors, philosophers, scientists, artists, athletes,
                   entrepreneurs and Gentlemen. Of all the Gentlemen is the least
@@ -896,17 +906,17 @@ const AboutPage = () => {
                     decisions for thousands of years. We are moving towards a
                     “socialstructed” world: a new economy where your web
                     influence and social connections will matter just as much as
-                    the money in your bank account. This &apos;sreputation
-                    economy&apos;s is ... already happening, where the
-                    individual social graph — the social data set about each
-                    person — determines one&apos;ss value in society, access to
-                    services, and employability. In this economy, reputation
-                    becomes currency:
+                    the money in your bank account...
                   </p>
                 }
               >
-                <p>
-                  see modern day &apos;sInfluencers&apos;s social media. A.I. is
+                <p>This reputation
+                    economy&apos;s is already happening, where the
+                    individual social graph — the social data set about each
+                    person — determines one&apos;s value in society, access to
+                    services, and employability. In this economy, reputation
+                    becomes currency:
+                  see modern day&apos;s Influencers social media. A.I. is
                   here and we believe that reputation is about to become a
                   capital asset. The Fraternity & Co aims to be at the fore
                   front of the reputation economy through creating the algorithm
@@ -920,21 +930,22 @@ const AboutPage = () => {
               <SeeMore
                 preview={
                   <p>
-                    The word &apos;sGentleman&apos;s is widely used and renown
+                    The word &apos;Gentleman&apos; is widely used and renown
                     worldwide, and in the literal sense has no ownership, no
                     clear interpretation but generates billions in revenues
                     annually for those that chose to capitalize on it. Today,
                     there are 21.3 million people interested in posts about the
-                    Gentleman on the top 200 Gentleman&apos;ss Instagram Pages.
-                    These followers actively engage and buy into brands and ...
-                    influencers that use the term, Gentleman; major luxury
-                    manufacturers, engage in this space through sponsorship,
-                    advertising and promotions, spending millions actively
-                    promoting their luxury goods.
+                    Gentleman on the top 200 Gentleman&apos;s Instagram Pages...
+                   
                   </p>
                 }
               >
                 <p>
+                   These followers actively engage and buy into brands and
+                    influencers that use the term, Gentleman; major luxury
+                    manufacturers, engage in this space through sponsorship,
+                    advertising and promotions, spending millions actively
+                    promoting their luxury goods.
                   The word &apos;sGentleman&apos;s is widely used and renown
                   worldwide, and in the literal sense has no ownership, no clear
                   interpretation but generates billions in revenues annually for
@@ -978,7 +989,7 @@ const AboutPage = () => {
                     collection July 2025. Administration will be put in place
                     for growth and prepare for marketing the next 3 collections.
                     Thereafter, the ‘1001&apos;s will be launched and presented
-                    in September 2025.{" "}
+                    in September 2025...
                   </p>
                 }
               >
@@ -986,66 +997,67 @@ const AboutPage = () => {
                   The third collection: 1999 (Surreal Collection) December 2025
                   The final collection: (AI Collection) January 2026 will grow
                   the membership to 12&apos;s000 and will enable us to build out
-                  the first working app.{" "}
-                  <a href="/Roadmap" style={{ textDecoration: "underline" }}>
+                  the first working app.
+                  <a href="/roadmap" style={{ textDecoration: "underline" }}>
                     (See Roadmap)
-                  </a>{" "}
+                  </a>
                   . We will begin to offer our first services and the
-                  &apos;sButler&apos;s will become omni present.
+                  &apos;Butler&apos; will become omni present.
                 </p>
               </SeeMore>
             </div>
           </div>
-        </div>
-      </main>
-      {/* Navigation Buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="flex justify-center gap-4 mb-8"
-      >
-        {navigationButtons.map((nav) => (
-          <Link key={nav.label} href={nav.href}>
-            <Button
-              variant="outline"
-              className="px-6 py-2 rounded-none bg-white border border-black text-black font-bold border-solid shadow-[20px_-8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 mx-4"
-            >
-              {nav.label}
-            </Button>
-          </Link>
-        ))}
-      </motion.div>
-
-      {/* Social Links */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="flex gap-4 mb-12"
-      >
-        {socialLinks.map((social) => (
-          <Link key={social.icon} href={social.href}>
-            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-              <Image
-                src={social.image}
-                alt={social.icon}
-                width={24}
-                height={24}
-                className="w-6 h-6 object-contain"
-              />
-            </div>
-          </Link>
-        ))}
-      </motion.div>
-
-      {/* Footer */}
-      <footer className="flex justify-between  items-center text-sm">
-        <div className="flex-1 flex justify-center items-center">
-          <p>© 2025 Arrys NFT by Artheistlabs. All rights reserved.</p>
-        </div>
-      </footer>
+       
     </div>
+  </main>
+  {/* Navigation Buttons */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.6 }}
+    className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8"
+  >
+    {navigationButtons.map((nav) => (
+      <Link key={nav.label} href={nav.href}>
+        <Button
+          variant="outline"
+          className="px-4 py-2 sm:px-6 sm:py-2 rounded-none bg-white border border-black text-black font-bold border-solid shadow-[8px_-4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[20px_-8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 mx-2 sm:mx-4 text-xs sm:text-base"
+        >
+          {nav.label}
+        </Button>
+      </Link>
+    ))}
+  </motion.div>
+
+  {/* Social Links */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8, delay: 0.4 }}
+    className="flex gap-2 sm:gap-4 mb-8 sm:mb-12 flex-wrap justify-center"
+  >
+    {socialLinks.map((social) => (
+      <Link key={social.icon} href={social.href}>
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+          <Image
+            src={social.image}
+            alt={social.icon}
+            width={24}
+            height={24}
+            className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+          />
+        </div>
+      </Link>
+    ))}
+  </motion.div>
+
+  {/* Footer */}
+  <footer className="flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0 px-2 sm:px-8 py-4">
+    <div className="flex-1 flex justify-center items-center">
+      <p>© 2025 Arrys NFT by Artheistlabs. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
   );
 };
 

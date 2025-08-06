@@ -1,5 +1,5 @@
 import Footer from '@/components/Layout/Footer';
-import { RoadmapTimeline } from '@/components/roadmap/RoadmapTimeline';
+import { RoadmapTimeline } from '@/components/roadmap/roadmap';
 import Image from "next/image";
 
 export default function RoadmapPage() {

@@ -57,6 +57,12 @@ const nftCollection = [
     image: "./images/8.png",
   },
 ];
+const navigationButtons = [
+  { label: "HOME", href: "/" },
+  { label: "ABOUT", href: "/about" },
+  { label: "TEAM", href: "/team" },
+  { label: "ROADMAP", href: "/roadmap" },
+];
 
 const AboutPage = () => {
   const [discordConnected, setDiscordConnected] = useState(false);
@@ -1067,7 +1073,23 @@ const AboutPage = () => {
       </Link>
     ))}
   </motion.div>
-
+<motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.6 }}
+    className="hidden sm:flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 md:mb-8"
+  >
+    {navigationButtons.map((nav) => (
+      <Link key={nav.label} href={nav.href}>
+        <Button
+          variant="outline"
+          className="px-4 py-2 sm:px-6 sm:py-2 rounded-none bg-white border border-black text-black font-bold border-solid shadow-[8px_-4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[20px_-8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 mx-2 sm:mx-4 text-xs sm:text-base"
+        >
+          {nav.label}
+        </Button>
+      </Link>
+    ))}
+  </motion.div>
   {/* Footer */}
  <footer className="w-full flex-col flex items-center justify-between px-4 sm:px-10 py-4  relative">
    

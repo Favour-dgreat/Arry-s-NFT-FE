@@ -7,7 +7,8 @@ import { ChevronLeft, ChevronRight, ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import SeeMore from "@/components/SeeMore";
-import Navbar from "@/components/Layout/Navbar2";
+import Navbar from "@/components/Layout/Navbar";
+import JoinCommunityModal from "@/components/NFT/modal";
 
 interface AboutProps {
   setDiscordConnected?: (connected: boolean) => void;
@@ -93,12 +94,37 @@ const AboutPage = () => {
   };
   return (
   <div className="min-h-screen bg-white text-black flex flex-col flex-1 items-center justify-center">
-      <div className="absolute right-2 top-2 z-50">
-        <Navbar
-          discordConnected={discordConnected}
-          onOpenModal={() => setShowModal(true)}
+      <JoinCommunityModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          onDiscordConnect={() => {
+            setDiscordConnected?.(true);
+            setShowModal(false);
+          }}
         />
-      </div>
+        <JoinCommunityModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          onDiscordConnect={() => {
+            setDiscordConnected?.(true);
+            setShowModal(false);
+          }}
+        />
+        <div className="absolute right-2 top-2 z-50">
+          <Navbar 
+            discordConnected={discordConnected}
+            onOpenModal={() => setShowModal(true)}
+          />
+        </div>
+        {/* <div className="absolute left-2 sm:right-2 top-2 z-50">
+          <Image
+            src="./images/pipe.png"
+            alt="Pipe Logo"
+            width={48}
+            height={48}
+            className="w-16 h-16 md:w-20 md:h-20 object-contain"
+          />
+        </div> */}
   <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-8 py-8 sm:py-16">
     {/* Title */}
     <motion.div
@@ -126,11 +152,11 @@ const AboutPage = () => {
     </div>
 
     {/* NFT Showcase */}
-    <div className="relative w-full max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto overflow-hidden mb-8">
+    <div className="relative w-full max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-7xl mx-auto overflow-hidden mb-8">
       <div className="relative overflow-hidden">
         <div
           ref={scrollRef}
-          className="flex space-x-3 sm:space-x-4 overflow-x-auto scrollbar-hide px-2 py-4"
+          className="flex space-x-2 sm:space-x-4 overflow-x-auto scrollbar-hide px-2 py-4"
           style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
         >
           {nftCollection.map((nft, index) => (
@@ -1043,11 +1069,31 @@ const AboutPage = () => {
   </motion.div>
 
   {/* Footer */}
-  <footer className="flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0 px-2 sm:px-8 py-4">
-    <div className="flex-1 flex justify-center items-center">
-      <p>© 2025 Arrys NFT by Artheistlabs. All rights reserved.</p>
-    </div>
-  </footer>
+ <footer className="w-full flex-col flex items-center justify-between px-4 sm:px-10 py-4  relative">
+   
+   {/* Left Pipe Icon */}
+   <div className="absolute left-0 sm:left-0">
+     <Image
+       src="/images/footerpipe.png"
+       alt="Pipe Icon"
+       width={40}
+       height={40}
+       className="object-contain w-8 h-8 sm:w-16 sm:h-16"
+     />
+   </div>
+ 
+   <div className="flex items-center gap-4 text-sm font-light uppercase">
+         <Link href="/privacy-policy">
+           <p className="hover:underline text-[#8E8E93]">Privacy Policy</p>
+         </Link>
+         <Link href="/terms-and-conditions">
+           <p className="hover:underline">Terms & Conditions</p>
+         </Link>
+       </div>
+       <p className="text-xs font-light text-center mt-1">
+         © 2025 Arrys NFT by Artheistlabs. All rights reserved.
+       </p>
+ </footer>
 </div>
   );
 };

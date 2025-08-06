@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import JoinCommunityModal from "@/components/NFT/modal";
-import Navbar from "@/components/Layout/Navbar2";
+import Navbar from "@/components/Layout/Navbar";
 
 interface GalleryProps {
   setDiscordConnected?: (connected: boolean) => void;
@@ -51,6 +51,12 @@ const socialLinks = [
   { icon: "instagram", href: "#", image: "./images/mdi_instagram.png" },
 ];
 
+const navigationButtons = [
+  { label: "HOME", href: "/" },
+  { label: "ABOUT", href: "/about" },
+  { label: "TEAM", href: "/team" },
+  { label: "ROADMAP", href: "/roadmap" },
+];
 
 const GalleryPage = () => {
   // Remove setDiscordConnected from props
@@ -98,7 +104,7 @@ const GalleryPage = () => {
     }}
   />
   <div className="absolute left-2 top-2 z-50">
-    <Navbar
+    <Navbar 
       discordConnected={discordConnected}
       onOpenModal={() => setShowModal(true)}
     />
@@ -221,31 +227,51 @@ const GalleryPage = () => {
       </div>
     </div>
   </main>
-  
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.6 }}
+    className="hidden sm:flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 md:mb-8"
+  >
+    {navigationButtons.map((nav) => (
+      <Link key={nav.label} href={nav.href}>
+        <Button
+          variant="outline"
+          className="px-4 py-2 sm:px-6 sm:py-2 rounded-none bg-white border border-black text-black font-bold border-solid shadow-[8px_-4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[20px_-8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 mx-2 sm:mx-4 text-xs sm:text-base"
+        >
+          {nav.label}
+        </Button>
+      </Link>
+    ))}
+  </motion.div>
 
   {/* Footer */}
-  <footer className="flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0 px-2 sm:px-8 py-4">
-    
-    <div className="flex-1 flex justify-center items-center">
-      <div className="flex gap-2 sm:gap-2">
-         <Image
-        src="./images/footerpipe.png"
-        alt="Arry's Logo"
-        width={40}
-        height={40}
-        className="w-16 h-16 sm:w-1 sm:h-1 object-contain"
-      />
-        <Link href="/privacy" className="text-gray-500 hover:text-black">
-          PRIVACY POLICY
+  <footer className="w-full flex-col flex items-center justify-between px-4 sm:px-10 py-4  relative">
+  
+  {/* Left Pipe Icon */}
+  <div className="absolute left-0 sm:left-0">
+    <Image
+      src="/images/footerpipe.png"
+      alt="Pipe Icon"
+      width={40}
+      height={40}
+      className="object-contain w-8 h-8 sm:w-16 sm:h-16"
+    />
+  </div>
+
+  <div className="flex items-center gap-4 text-sm font-light uppercase">
+        <Link href="/privacy-policy">
+          <p className="hover:underline text-[#8E8E93]">Privacy Policy</p>
         </Link>
-        <Link href="/terms" className="text-black font-bold">
-          TERMS & CONDITIONS
+        <Link href="/terms-and-conditions">
+          <p className="hover:underline">Terms & Conditions</p>
         </Link>
       </div>
-      
-    </div>
-<p>© 2025 Arrys NFT by Artheistlabs. All rights reserved.</p>
-  </footer>
+      <p className="text-xs font-light text-center mt-1">
+        © 2025 Arrys NFT by Artheistlabs. All rights reserved.
+      </p>
+</footer>
+
    
 </div>
 // ...existing code...

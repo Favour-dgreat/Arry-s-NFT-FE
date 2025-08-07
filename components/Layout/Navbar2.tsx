@@ -17,7 +17,7 @@ const navItems = [
   {
     name: "HOME",
     href: "/",
-    icon: "/images/menu1.png", // replace with your actual image path
+    icon: "/images/menu1.png", 
   },
   {
     name: "ABOUT",
@@ -35,7 +35,6 @@ const navItems = [
     icon: "/images/menu4.png",
   },
 
-  // Add more items as needed
 ];
 
 type NavbarProps = {
@@ -49,8 +48,12 @@ const Navbar = ({ discordConnected, onOpenModal }: NavbarProps) => {
   return (
    <header className="w-full top-0 left-0 transition-all duration-300 text-white py-4 pt-5">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center">
-      {/* Desktop Nav */}
+				<div className="flex justify-between items-center">
+					<div className="flex-shrink-0">
+						<Link href="/" className="flex items-center">
+							<span className="font-bold text-lg font-fattip">Arry&apos;s NFT</span>
+						</Link>
+					</div>
       <nav className="hidden md:flex space-x-8">
         {navItems.map((item) => (
           <Link
@@ -73,7 +76,7 @@ const Navbar = ({ discordConnected, onOpenModal }: NavbarProps) => {
           aria-label="Open menu"
         >
           {mobileMenuOpen ? (
-            <X className="w-6 h-6 text-black" />
+            <X className="w-6 h-6 text-white" />
           ) : (
             <Image
               src="/images/menu.png"
@@ -96,49 +99,29 @@ const Navbar = ({ discordConnected, onOpenModal }: NavbarProps) => {
         <Link2 className="text-white w-4 h-4" />
       </button>
     </div>
-  </div>
-
-  {/* Mobile Fullscreen Nav Menu */}
-  {mobileMenuOpen && (
-  <div className="fixed inset-0 bg-white z-10 flex flex-col items-center justify-center text-white">
-    {/* Close Icon */}
-    <button
-      onClick={() => setMobileMenuOpen(false)}
-      className="absolute top-4 left-4 z-50 p-2"
-      aria-label="Close menu"
-    >
-      <Image
-        src="/images/Close.png"
-        alt="Close Menu"
-        className="object-contain w-6 h-6"
-        width={24}
-        height={24}
-      />
-   
-    </button>
-
-    {/* Mobile Nav Menu */}
-    <nav className="flex flex-col justify-start space-y-6">
-       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="flex flex-col justify-start text-left gap-2 sm:gap-4 mb-8"
-      >
-        {navigationButtons.map((nav) => (
-          <Link key={nav.label} href={nav.href}>
-            <Button
-              variant="outline"
-              className="px-4 py-2 sm:px-6 sm:py-2 rounded-none bg-white border border-black text-black font-bold border-solid shadow-[8px_-4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[20px_-8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 mx-2 sm:mx-4 text-xs sm:text-base"
-            >
-              {nav.label}
-            </Button>
-          </Link>
-        ))}
-      </motion.div>
+   {/* Mobile Nav Menu */}
+        {mobileMenuOpen && (
+          <nav className="md:hidden mt-4 flex flex-col space-y-4 bg-black/80 rounded p-4 shadow-lg">
+      {navItems.map((item) => (
+        <Link
+          key={item.name}
+          href={item.href}
+          className="flex items-center space-x-3 text-sm font-medium transition-colors hover:text-gray-300"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <Image
+            src={item.icon}
+            alt={item.name}
+            width={24}
+            height={24}
+            className="w-6 h-6 object-contain"
+          />
+          <span>{item.name}</span>
+        </Link>
+      ))}
 
       <button
-        className="flex items-center space-x-2 bg-[#2C2C2C] hover:bg-gray-600 text-xs font-medium px-4 py-2 rounded transition-colors"
+        className="flex items-center space-x-2 bg-[#2C2C2C] hover:bg-gray-600 text-xs font-medium px-3 py-2 rounded transition-colors"
         onClick={onOpenModal}
         disabled={discordConnected}
       >
@@ -148,11 +131,9 @@ const Navbar = ({ discordConnected, onOpenModal }: NavbarProps) => {
         <Link2 className="text-white w-4 h-4" />
       </button>
     </nav>
-  </div>
-)}
-
-</header>
-
+        )}
+      </div>
+    </header>
   );
 };
 

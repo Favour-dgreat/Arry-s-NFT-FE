@@ -1,7 +1,7 @@
 'use client';
 
 import { Badge } from '@/components/ui/badge';
-import  NavBar  from '@/components/Layout/Navbar';
+import  NavBar  from '@/components/Layout/Navbar2';
 
 interface Phase {
   number: number;

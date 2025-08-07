@@ -150,24 +150,24 @@ const HeroSection: React.FC = ({}) => {
 
 
   return (
-   <section className="py-6 sm:py-16 md:py-16 md:px-12">
+   <section className=" sm:py-16 md:py-16 md:px-12">
   {/* Hero Section */}
   <div
-    className="max-w-7xl h-full mx-auto px-3 xs:px-4 md:px-8 lg:px-24 py-24 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
+    className="max-w-7xl h-full mx-auto px-3 xs:px-4 md:px-8 lg:px-24 py-20 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
     style={{ background: 'linear-gradient(135deg, #262E30, #060C0C00)',  }}
   >
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5 }} 
     >
-      <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4  leading-tight">
+      <h1 className="text-2xl xs:text-3xl sm:text-4xl mb-5 md:text-5xl lg:text-6xl font-bold  sm:mb-4 uppercase leading-tight">
         Discover, and Collect Digital Arts (NFTs)
       </h1>
-      <p className="text-gray-400 mb-5 sm:mb-6 text-base sm:text-lg">
+      <p className="text-gray-400 mb-2 sm:mb-6 text-base sm:text-lg">
         One NFT. One Story. Choose a piece from your favorite series before they&apos;re all gone.
       </p>
-      <div className="flex flex-row gap-6 ">
+      <div className="flex flex-row gap-6 py-5">
         <div className="flex items-center gap-6 mt-2 sm:mt-0">
           <div>
             <div className="text-2xl sm:text-3xl font-bold">9k+</div>
@@ -184,13 +184,12 @@ const HeroSection: React.FC = ({}) => {
         
       </div>
     </motion.div>
-  <div className="relative w-full h-[280px] xs:h-[450px] sm:h-[650px] md:h-full lg:h-[550px] items-center justify-center  sm:px-0">
+  <div className="relative w-full h-[280px] px-10 xs:h-[450px] sm:h-[650px] md:h-full lg:h-[550px] items-center justify-center  sm:px-0">
     {/* Stacked Background NFTs */}
     {stackedNFTs.map((nft, index) => {
-      // Responsive card width/height and spacing
-      const cardWidths = ["w-[220px]", "xs:w-[220px]", "sm:w-[220px]", "md:w-[420px]"];
-      const cardHeights = ["h-[320px]", "xs:h-[380px]", "sm:h-[450px]", "md:h-[550px]"];
-      const translateX = `${index * 38}px`; // less spacing for mobile
+      const cardWidths = ["w-[250px]", "xs:w-[250px]", "sm:w-[220px]", "md:w-[420px]"];
+      const cardHeights = ["h-[350px]", "xs:h-[420px]", "sm:h-[450px]", "md:h-[550px]"];
+      const translateX = `${index * 38}px`; 
       const zIndex = 10 - index;
       const opacity = 1 - index * 0.3;
 
@@ -211,7 +210,7 @@ const HeroSection: React.FC = ({}) => {
           }}
         >
           <div className="relative w-full h-[60%] justify-center items-center">
-            <div className="relative w-full h-[160px] xs:h-[200px] sm:h-[260px] md:h-[400px] bg-white overflow-hidden border border-gray-200">
+            <div className="relative w-full flex flex-1 h-[220px] xs:h-[260px] sm:h-[260px] md:h-[400px] bg-white overflow-hidden border border-gray-200">
               <Image
                 src={nft.image}
                 alt={nft.title}

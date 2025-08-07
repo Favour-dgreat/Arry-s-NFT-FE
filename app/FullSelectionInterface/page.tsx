@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react";
-import Navbar from '@/components/Layout/Navbar';
+import Navbar from '@/components/Layout/Navbar2';
 import HeroSection from '@/components/FullSelectionInterface/Hero';
 import JoinCommunityModal from '@/components/NFT/modal';
 import Footer from "@/components/Layout/Footer";
